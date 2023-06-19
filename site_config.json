@@ -1,0 +1,124 @@
+{
+    "site_name": "QuecPython",
+    "site_slogon": "QuecPython文档中心",
+    "site_root_url": "/doc/",
+    "site_domain": "toscode.gitee.com/qpy-doc-center/teedoc_with_qpydoc",
+    "site_protocol": "https",
+    "config_template_dir": "config",
+    "source": "https://toscode.gitee.com/qpy-doc-center/teedoc_with_qpydoc/blob/main/",
+    "route": {
+        "docs": {
+            "/API_reference/zh/": "docs/API_reference/zh",
+            "/Quecpython_intro/zh/": "docs/Quecpython_intro/zh",
+            "/Quick_start/zh/": "docs/Quick_start/zh",
+            "/sbs/zh/": "docs/sbs/zh",
+            "/Advanced_development/zh/": "docs/Advanced_development/zh",
+            "/Product_case/zh/": "docs/Product_case/zh",
+            "/FAQ/zh/": "docs/FAQ/zh",
+			 "/API_reference/en/": "docs/API_reference/en",
+            "/Quecpython_intro/en/": "docs/Quecpython_intro/en",
+            "/Quick_start/en/": "docs/Quick_start/en",
+            "/sbs/en/": "docs/sbs/en",
+            "/Advanced_development/en/": "docs/Advanced_development/en",
+            "/Product_case/en/": "docs/Product_case/en",
+            "/FAQ/en/": "docs/FAQ/en"
+		},
+        "pages": {
+            "/": "pages/index/zh"
+        },
+        "assets": {
+            "/static/": "static"
+        }
+    },
+   "translate": {
+        "docs": {
+			"/API_reference/zh/": [ {
+                    "url": "/API_reference/en/",
+                    "src": "docs/API_reference/en"
+                }
+            ],
+            "/Quecpython_intro/zh/": [ {
+                    "url": "/Quecpython_intro/en/",
+                    "src": "docs/Quecpython_intro/en"
+                }
+            ],
+            "/Quick_start/zh/": [ {
+                    "url": "/Quick_start/en/",
+                    "src": "docs/Quick_start/en"
+                }
+            ],
+            "/sbs/zh/": [ {
+                    "url": "/sbs/en/",
+                    "src": "docs/sbs/en"
+                }
+            ],
+            "/Advanced_development/zh/": [ {
+                    "url": "/Advanced_development/en/",
+                    "src": "docs/Advanced_development/en"
+                }
+            ],
+            "/Product_case/zh/": [ {
+                    "url": "/Product_case/en/",
+                    "src": "docs/Product_case/en"
+                }
+            ],
+            "/FAQ/zh/": [ {
+                    "url": "/FAQ/en",
+                    "src": "docs/FAQ/en"
+                }
+            ]
+        },
+        "pages": {
+            "/": [ {
+                    "url": "/en/",
+                    "src": "pages/index/en"
+                }
+            ]
+        }
+    },
+    "executable": {
+        "python": "python3",
+        "pip": "pip3"
+    },
+    "plugins": {
+        "teedoc-plugin-markdown-parser":{
+            "from": "pypi",
+            "config": {
+                "mathjax": {
+                    "enable": true
+                }
+            }
+        },
+        "teedoc-plugin-jupyter-notebook-parser":{
+            "from": "pypi",
+            "config": {
+            }
+        },
+        "teedoc-plugin-theme-default":{
+            "from": "pypi",
+            "config": {
+                "dark": true,
+                "env":{
+                    "main_color": "#ED1922"
+                }
+            }
+        },
+        "teedoc-plugin-search":{
+            "from": "pypi",
+            "config": {
+                "search_hint": "Search"
+            }
+        },
+        "teedoc-plugin-baidu-tongji": {
+            "from": "pypi",
+            "config": {
+                "code": "4d52982572d5512e9762879ebf063c86"
+            }
+        }
+    },
+    "rebuild_changes_delay": 1,
+    "robots":{
+        "User-agent": "*"
+    },
+    "layout_root_dir": "layout"
+}

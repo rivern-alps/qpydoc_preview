@@ -1,0 +1,111 @@
+{
+    "class": "language_en",
+    "locale": "en",
+    "navbar": {
+        "title": "QuecPython",
+        "logo": {
+            "alt": "teedoc logo",
+            "src": "/static/image/quectel.png"
+        },
+        "home_url": "/",
+        "items": [
+             {
+                "url": "/Quick_start/en/index.html",
+                "label": "Quick start",
+                "position": "left"
+            },
+			{
+                "url": "https://python.quectel.com/download",
+                "label": "Download",
+                "position": "left"
+            },
+			{
+                "url": "/API_reference/en/index.html",
+                "label": "&nbsp;&nbsp;&nbsp;&nbsp;wiki&nbsp;&nbsp;&nbsp;&nbsp;",
+                "position": "left"
+            },
+            {
+                "label": "&nbsp;&nbsp;&nbsp;&nbsp;Doc&nbsp;&nbsp;&nbsp;&nbsp;",
+                "position": "left",
+                "items": [
+                    {
+                        "url": "/Quecpython_intro/en/index.html",
+                        "label": "Quecpython intro"
+                    },
+                    {
+                        "url": "/Quick_start/en/index.html",
+                        "label": "Quick start"
+                    },
+                    {
+                        "url": "/sbs/en/index.html",
+                        "label": "Basice"
+                    },
+                    {
+                        "url": "/Advanced_development/en/index.html",
+                        "label": "Advanced"
+                    },
+                    {
+                        "url": "/Product_case/en/index.html",
+                        "label": "Product case"
+                    },
+                    {
+                        "url": "/FAQ/en/index.html",
+                        "label": "FAQ"
+                    }
+                ]
+            },
+            {
+                "label": "Git",
+                "position": "right",
+                "url": "https://gitee.com/quecpython/Community-document"
+            },
+			{
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "type": "language"
+            }
+        ]
+    },
+   "footer":{
+        "top":[
+            {
+                "label": "Link",
+                "items": [
+                    {
+                        "label": "The site is generated using teedoc",
+                        "url": "https://teedoc.neucrack.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "sitemap",
+                        "url": "/sitemap.xml"
+                    }
+                ]
+            },
+            {
+                "label": "Source code",
+                "items": [
+                    {
+                        "label": "github",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "gitee",
+                        "url": "https://gitee.com/teedoc/teedoc",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ]
+    },
+	"plugins": {
+		 "teedoc-plugin-search": {
+				"from": "pypi",
+				"config": {
+					"search_hint": "Search"
+				}
+		}
+	}
+}

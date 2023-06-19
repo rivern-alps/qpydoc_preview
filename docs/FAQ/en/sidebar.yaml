@@ -1,0 +1,61 @@
+items:
+  - label: 操作指引
+    file: guide/README.md
+    items:
+      - label: 搜索功能用法
+        file: guide/use-search.md
+      - label: 参与文档贡献
+        file: guide/contribute.md
+  - label: 开发环境和工具相关
+    file: tools/README.md
+    items:
+      - label: 开发板常见问题
+        file: tools/evb.md
+      - label: QPYcom 常见问题
+        file: tools/qpycom.md
+      - label: QFlash 常见问题
+        file: tools/qflash.md
+  - label: 软件相关
+    file: software/README.md
+    items:
+      - label: 系统基础功能常见问题
+        file: software/os.md
+      - label: 多线程开发常见问题
+        file: software/threads.md
+      - label: 编程框架
+        file: software/frameworks.md
+  - label: 硬件功能相关
+    file: hardware/README.md
+    items:
+      - label: BSP功能常见问题
+        file: hardware/bsp.md
+      - label: 多媒体功能常见问题
+        file: hardware/multimedia.md
+      - label: 图形界面功能常见问题
+        file: hardware/ui.md
+      - label: 蓝牙功能常见问题
+        file: hardware/bt.md
+      - label: 功耗常见问题
+        file: hardware/pm.md
+      - label: 外挂组件相关常见问题
+        file: hardware/external.md
+  - label: 网络功能相关
+    file: network/README.md
+    items:
+      - label: 注网拨号常见问题
+        file: network/basics.md
+      - label: 语音通话和短信常见问题
+        file: network/voicecall-and-sms.md
+      - label: 基础连接常见问题
+        file: network/connections.md
+      - label: 云平台相关常见问题
+        file: network/cloud-platforms.md
+  - label: 量产和商业应用
+    file: mp/README.md
+    items:
+      - label: 量产工具
+        file: mp/mp-tools.md
+      - label: 解决方案
+        file: mp/solution.md
+      - label: 硬件设计和验证
+        file: mp/hd-design.md

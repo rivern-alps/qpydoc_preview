@@ -1,0 +1,101 @@
+items:
+  - label: 云平台
+    items:
+      - label: 接入移远云
+        file: QuecPythonCloud/QuecCloud.md
+      - label: 接入阿里云
+        file: QuecPythonCloud/Aliyun.md
+      - label: 接入腾讯云
+        file: QuecPythonCloud/TencentCloud.md
+      - label: 接入华为云
+        file: QuecPythonCloud/HuaweiCloud.md
+      - label: 接入移动云
+        file: QuecPythonCloud/OneNET_MQTT.md
+      - label: 接入亚马逊云
+        file: QuecPythonCloud/AmazonCloud.md
+  - label: 基础外设
+    items:
+      - label: LCD开发
+        file: QuecPythonSub/LCD.md
+      - label: 摄像头调试开发
+        file: QuecPythonSub/camera.md
+      - label: 数码管开发
+        file: QuecPythonSub/Digital_tube.md
+      - label: 温湿度传感器开发
+        file: QuecPythonSub/i2c_aht.md
+      - label: 光敏传感器开发
+        file: QuecPythonSub/Photoresistor.md
+      - label: 加速度传感器开发
+        file: QuecPythonSub/i2c_lis2dh.md
+      - label: 步进电机驱动开发
+        file: QuecPythonSub/ebf_smd4805.md
+  - label: 组件
+    items:
+      - label: 跑马灯开发
+        file: QuecPythonBus/LED.md
+      - label: 蜂鸣器开发
+        file: QuecPythonBus/buzzer.md
+      - label: 按键输入开发
+        file: QuecPythonBus/button.md
+      - label: 串口进阶开发
+        file: QuecPythonBus/uart.md
+      - label: 外部中断开发
+        file: QuecPythonBus/ExtInt.md
+      - label: 独立看门狗开发
+        file: QuecPythonBus/WDT.md
+  - label: 第三方组件
+    items:
+      - label: ModBus开发
+        file: QuecPythonThird/modbus.md
+      - label: asyncio开发
+        file: QuecPythonThird/asyncio.md
+      - label: Blinker开发
+        file: QuecPythonThird/blinker.md
+      - label: HLS开发
+        file: QuecPythonThird/HLS.md
+      - label: LVGL开发
+        file: QuecPythonThird/lvgl.md
+      - label: BLE开发
+        file: QuecPythonThird/BLE.md  
+  - label: 高级组件
+    items:
+      - label: Wi-Fi开发
+        file: QuecPythonAdvance/wifi.md
+      # - label: SGMII开发
+        # file: QuecPythonAdvance/sgmii.md
+      - label: HeliosService API
+        file: QuecPythonAdvance/HeliosService_API.md
+      - label: 中断及看门狗
+        file: QuecPythonAdvance/interrupt.md
+  - label: HeliosService
+    items:
+      - label: HeliosService入门
+        file: HeliosService/HeliosService_1.md
+      - label: HeliosService进阶
+        file: HeliosService/HeliosService_2.md
+      - label: HeliosService高级
+        file: HeliosService/HeliosService_3.md
+  - label: 量产
+    items:
+      - label: 量产工具使用指导
+        file: Mass_production/README.md
+      - label: 代码加密保护
+        file: Mass_production/CodeEncryption.md
+      - label: 数据加密保护
+        file: Mass_production/DataEncryption.md
+      - label: 备份还原机制
+        file: Mass_production/QuecPythonBack.md
+  - label: HeliosSDK
+    items:
+      - label: HeliosSDK入门
+        file: HeliosSDK/Helios_SDK_01.md
+      - label: HeliosSDK进阶
+        file: HeliosSDK/Helios_SDK_02.md
+      - label: HeliosSDK高级
+        file: HeliosSDK/Helios_SDK_03.md
+  - label: 工具
+    items:
+      - label: QPYcom工具交互原理说明
+        file: QuecPythonTools/QPYcom_repl.md
+      - label: QPYcom工具使用说明
+        file: QuecPythonTools/QPYcom.md

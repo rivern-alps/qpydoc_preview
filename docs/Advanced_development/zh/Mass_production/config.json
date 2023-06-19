@@ -1,0 +1,24 @@
+{
+    "import": "config_zh",
+    "navbar": {
+        "items": [
+            {
+				"id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+						"id": "zh",
+                        "url": "/doc/Mass_production/zh/",
+                        "label": "中文"
+                    },
+                    {
+						"id": "en",
+                        "url": "/doc/Mass_production/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}

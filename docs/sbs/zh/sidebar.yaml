@@ -1,0 +1,52 @@
+# 手把手教程
+items:
+  - label: 基础操作说明
+    file: README.md
+  - label: BSP
+    items:
+      - label: UART开发
+        file: BSP/UART.md
+      - label: GPIO及中断开发
+        file: BSP/GPIO.md
+      - label: I2C总线开发
+        file: BSP/I2C.md
+      - label: PWM开发
+        file: BSP/PWM.md
+      - label: ADC采样开发
+        file: BSP/ADC.md
+      - label: SPI总线开发
+        file: BSP/SPI.md  
+  - label: 网络应用
+    items:
+      - label: dataCall数据拨号
+        file: QuecPythonWirelessNetwork/DataCall.md
+      - label: SIM卡功能开发
+        file: QuecPythonWirelessNetwork/sim.md
+      - label: cellLocator基站定位
+        file: QuecPythonWirelessNetwork/cellLocator.md
+      - label: NTP应用开发
+        file: QuecPythonWirelessNetwork/ntp.md
+      - label: https从服务器获取三元组
+        file: QuecPythonWirelessNetwork/https.md
+  - label: 平台
+    items:
+      - label: modem使用指导
+        file: QuecPythonPlatform/modem_get_dev_info.md
+      - label: ASR_固件升级用户指导
+        file: QuecPythonPlatform/FOTA_ASR.md
+      - label: RDA_固件升级用户指导
+        file: QuecPythonPlatform/FOTA_RDA.md
+      - label: 音频开发
+        file: QuecPythonPlatform/Audio.md
+  - label: 多线程&消息队列
+    items:
+      - label: 多线程开发
+        file: thread/thread.md
+      - label: 消息队列开发
+        file: thread/queue.md      
+      - label: Format_String
+        file: thread/Format_String.md      
+  - label: 系统
+    items:
+      - label: 文件系统应用指导
+        file: QuecPythonSys/filesystem.md

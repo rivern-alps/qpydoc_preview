@@ -1,0 +1,10 @@
+# Quecpython 快速开始
+items:
+  - label: 快速入门
+    file: README.md
+  - label: 开发板列表
+    items:
+      - label: EC2X开发板介绍
+        file: EC2X_BOARD.md
+      - label: FCM360W开发板介绍
+        file: FCM360W-TE-B.md

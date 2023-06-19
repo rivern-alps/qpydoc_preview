@@ -1,0 +1,10 @@
+# Quecpython Quick Start
+items:
+  - label: Quick Start Guide
+    file: README.md
+  - label: EVB List
+    items:
+      - label: EC2X_BOARD
+        file: EC2X_BOARD.md
+      - label: FCM360W-TE-B
+        file: FCM360W-TE-B.md

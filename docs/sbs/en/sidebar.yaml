@@ -1,0 +1,50 @@
+# Handle tutorial
+items:
+  - label: Basic operating instructions
+    file: README.md
+  - label: BSP
+    items:
+      - label: UART development
+        file: BSP/UART.md
+      - label: GPIO and interrupt development
+        file: BSP/GPIO.md
+      - label: I2C bus development
+        file: BSP/I2C.md
+      - label: PWM development
+        file: BSP/PWM.md
+      - label: ADC sampling development
+        file: BSP/ADC.md
+      - label: SPI bus development
+        file: BSP/SPI.md  
+  - label: Network application
+    items:
+      - label: Datacall data dialing
+        file: QuecPythonWirelessNetwork/DataCall.md
+      - label: SIM card function development
+        file: QuecPythonWirelessNetwork/sim.md
+      - label: Celllocator base station location
+        file: QuecPythonWirelessNetwork/cellLocator.md
+      - label: NTP application development
+        file: QuecPythonWirelessNetwork/ntp.md
+  - label: Platform
+    items:
+      - label: Modem instruction
+        file: QuecPythonPlatform/modem_get_dev_info.md
+      - label: ASR_Firmware_Upgrade
+        file: QuecPythonPlatform/FOTA_ASR.md
+      - label: RDA_Firmware_Upgrade
+        file: QuecPythonPlatform/FOTA_RDA.md
+      - label: Audio Development
+        file: QuecPythonPlatform/Audio.md
+  - label: Multithreading & message queue
+    items:
+      - label: Multithreading development
+        file: thread/thread.md
+      - label: Message queue development
+        file: thread/queue.md      
+      - label: Format_String
+        file: thread/Format_String.md      
+  - label: System
+    items:
+      - label: File System Application Guide
+        file: QuecPythonSys/filesystem.md

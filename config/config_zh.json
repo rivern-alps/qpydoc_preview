@@ -1,0 +1,112 @@
+{
+    "class": "language_zh",
+    "locale": "zh",
+    "navbar": {
+        "title": "QuecPython",
+        "logo": {
+            "alt": "teedoc logo",
+            "src": "/static/image/quectel.png"
+        },
+        "home_url": "/",
+        "items": [
+             {
+                "url": "/Quick_start/zh/index.html",
+                "label": "文档简介",
+                "position": "left"
+            },
+			{
+                "url": "https://python.quectel.com/download",
+                "label": "官网下载",
+                "position": "left"
+            },
+			{
+                "url": "/API_reference/zh/index.html",
+                "label": "&nbsp;&nbsp;&nbsp;&nbsp;wiki&nbsp;&nbsp;&nbsp;&nbsp;",
+                "position": "left"
+            },
+            {
+                "label": "&nbsp;&nbsp;&nbsp;&nbsp;文档&nbsp;&nbsp;&nbsp;&nbsp;",
+                "position": "left",
+                "items": [
+                    {
+                        "url": "/Quecpython_intro/zh/index.html",
+                        "label": "产品介绍"
+                    },
+                    {
+                        "url": "/Quick_start/zh/index.html",
+                        "label": "快速入门"
+                    },
+                    {
+                        "url": "/sbs/zh/index.html",
+                        "label": "基础教程"
+                    },
+                    {
+                        "url": "/Advanced_development/zh/index.html",
+                        "label": "进阶开发"
+                    },
+                    {
+                        "url": "/Product_case/zh/index.html",
+                        "label": "产品案例"
+                    },
+                    {
+                        "url": "/FAQ/zh/index.html",
+                        "label": "常见问题"
+                    }
+                ]
+            },
+            {
+                "label": "Git",
+                "position": "right",
+                "url": "https://gitee.com/quecpython/Community-document"
+            },
+			{
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "type": "language"
+            }
+        ]
+    },
+    "footer": {
+        "top": [
+            {
+                "label": "链接",
+                "items": [
+                    {
+                        "label": "网站使用 teedoc 生成",
+                        "url": "https://teedoc.neucrack.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Copyright © 2021 移远通信",
+                        "url": "https://www.quectel.com/",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "源码",
+                "items": [
+                    {
+                        "label": "github",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "本网站源文件",
+                        "url": "https://gitee.com/quecpython/Community-document",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ]
+    },
+	"plugins": {
+		 "teedoc-plugin-search": {
+				"from": "pypi",
+				"config": {
+					"search_hint": "Search"
+				}
+		}
+	}
+}

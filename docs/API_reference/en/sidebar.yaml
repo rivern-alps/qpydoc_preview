@@ -1,0 +1,203 @@
+items:
+items:
+-   label: stdlib
+    file: stdlib/README.md
+    items:
+    -   label: uos - Basic System Services
+        file: stdlib/uos.md
+    -   label: gc - Control the Garbage Collector
+        file: stdlib/gc.md
+    -   label: ubinascii - Binary/ASCII Conversions
+        file: stdlib/ubinascii.md
+    -   label: ucollections - Collection and Container Types
+        file: stdlib/ucollections.md
+    -   label: urandom - Generate Random Numbers
+        file: stdlib/urandom.md
+    -   label: math - Mathematical Functions
+        file: stdlib/math.md
+    -   label: usocket - socket Module
+        file: stdlib/usocket.md
+    -   label: uio - Input/Output Streams
+        file: stdlib/uio.md
+    -   label: ustruct - Pack and Unpack Primitive Data Types
+        file: stdlib/ustruct.md
+    -   label: ujson - JOSN Encoding and Decoding
+        file: stdlib/ujson.md
+    -   label: utime - Time Related Features
+        file: stdlib/utime.md
+    -   label: sys - System Related Features
+        file: stdlib/sys.md
+    -   label: uzlib - zlib Decompression
+        file: stdlib/uzlib.md
+    -   label: _thread - Multi-threading
+        file: stdlib/_thread.md
+    -   label: uhashlib - Hash Algorithm
+        file: stdlib/uhashlib.md
+-   label: IoT Library
+    file: iotlib/README.md
+    items:
+    -   label: dataCall - Data Call
+        file: iotlib/dataCall.md
+    -   label: sim - SIM Card Related Features
+        file: iotlib/sim.md
+    -   label: sms - SMS Related Features
+        file: iotlib/sms.md
+    -   label: voiceCall - Voice Call
+        file: iotlib/voiceCall.md
+    -   label: net - Networks
+        file: iotlib/net.md
+    -   label: modem - Device
+        file: iotlib/modem.md
+    -   label: pm - Power Management 
+        file: iotlib/pm.md
+    -   label: cellLocator - Base Station Location
+        file: iotlib/cellLocator.md
+    -   label: wifilocator - Wi-Fi Positioning
+        file: iotlib/wifilocator.md
+    -   label: wifiScan - Wi-Fi Scan
+        file: iotlib/wifiScan.md
+-   label: peripherals
+    file:  peripherals/README.md
+    items: 
+    -   label: camera - Camera Driver
+        file: peripherals/camera.md
+        items:
+        -   label: CamPreview - Camera Preview
+            file: peripherals/camera.CamPreview.md
+        -   label: CamDecoder - Camera Scan Code
+            file: peripherals/camera.CamDecoder.md
+        -   label: CamCapture - Camera Capture
+            file: peripherals/camera.CamCapture.md
+    -   label: audio - Audio
+        file: peripherals/audio.md
+        items:
+        -   label: Audio - Audio Playback
+            file: peripherals/audio.Audio.md
+        -   label: Record - Audio Record
+            file: peripherals/audio.Record.md
+    -   label: machine - Hardware
+        file: peripherals/machine.md
+        items:
+        -   label: Pin - Control I/O Pins
+            file: peripherals/machine.Pin.md
+        -   label: UART - Duplex Serial Communication Bus
+            file: peripherals/machine.UART.md
+        -   label: Timer - Control Hardware Timers
+            file: peripherals/machine.Timer.md
+        -   label: ExtInt - External Interrupt
+            file: peripherals/machine.ExtInt.md
+        -   label: RTC - Real Time Clock
+            file: peripherals/machine.RTC.md
+        -   label: I2C - Two-wire Serial Protocol
+            file: peripherals/machine.I2C.md
+        -   label: I2C_simulation - Software Implementation of I2C Protocol
+            file: peripherals/machine.I2C_simulation.md
+        -   label: SPI - Serial Peripheral Interface Bus Protocol
+            file: peripherals/machine.SPI.md
+        -   label: SoftSPI - Software Implementation of SPI Protocol
+            file: peripherals/machine.SoftSPI.md
+        -   label: LCD - LCD Driver
+            file: peripherals/machine.LCD.md
+        -   label: WDT - Watchdog Timer
+            file: peripherals/machine.WDT.md
+        -   label: KeyPad - Matrix Keyboard
+            file: peripherals/machine.KeyPad.md
+    -   label: misc - Miscellaneous Features
+        file: peripherals/misc.md
+        items:
+        -   label: Power - Power Off and Reboot
+            file: peripherals/misc.Power.md
+        -   label: PowerKey - PowerKey callback registration
+            file: peripherals/misc.PowerKey.md
+        -   label: PWM - Pulse width modulation
+            file: peripherals/misc.PWM.md
+        -   label: ADC - Analog-to-digital conversion
+            file: peripherals/misc.ADC.md
+        -   label: USB - USB plug and pull detection
+            file: peripherals/misc.USB.md
+        -   label: USBNET - USB Network Card
+            file: peripherals/misc.USBNET.md
+    -   label: ethernet - Ethernet Driver
+        file: peripherals/ethernet.md
+        items:
+        -   label: W5500 - W5500 Driver
+            file: peripherals/ethernet.W5500.md
+        -   label: DM9051 - DM9051 Driver
+            file: peripherals/ethernet.DM9051.md
+        -   label: CH395 - CH395 Driver
+            file: peripherals/ethernet.CH395.md
+        -   label: YT8512H - YT8512H Driver
+            file: peripherals/ethernet.YT8512H.md
+    -   label: qrcode - QR Code Display 
+        file: peripherals/qrcode.md
+-   label: networklib
+    file: networklib/README.md
+    items:
+    -   label: ussl - SSL algorithm
+        file: networklib/ussl.md
+    -   label: request - Hyper Text Transfer Protocol (HTTP)
+        file: networklib/request.md
+    -   label: umqtt - MQTT Protocol
+        file: networklib/umqtt.md
+    -   label: uwebsocket - websocket client
+        file: networklib/uwebsocket.md
+    -   label: checkNet - Network Detection
+        file: networklib/checkNet.md
+    -   label: uping - Sending ping packets
+        file: networklib/uping.md
+-   label: syslib
+    file: syslib/README.md
+    items:
+    -   label: example - Execute Python Scripts
+        file: syslib/example.md
+    -   label: atcmd - Send AT Commands
+        file: syslib/atcmd.md
+    -   label: log - Log Control and Output
+        file: syslib/log.md
+    -   label: system - System Configuration 
+        file: syslib/system.md
+    -   label: Queue - Message queue
+        file: syslib/Queue.md
+    -   label: sys_bus - Session bus
+        file: syslib/sys_bus.md
+    -   label: osTimer - os timer
+        file: syslib/osTimer.md
+    -   label: ntptime - Network Time Protocol (NTP)
+        file: syslib/ntptime.md
+    -   label: fota - Firmware Upgrade
+        file: syslib/fota.md
+    -   label: app_fota - User File Upgrade
+        file: syslib/app_fota.md
+    -   label: ql_fs - Advanced file operations
+        file: syslib/ql_fs.md
+-   label: WIFI/BT/GNSS
+    file: wifibtgnss/README.md
+    items:
+    -   label: WLAN - WLAN
+        file: wifibtgnss/WLAN.md
+        items:
+        -   label: ESP8266 - Espressif ESP8266 module driver
+            file: wifibtgnss/WLAN.ESP8266.md
+    -   label: ble - Bluetooth Low Energy 
+        file: wifibtgnss/ble.md
+    -   label: bt - Classic Bluetooth 
+        file: wifibtgnss/bt.md
+    -   label: gnss - External GNSS Resolver 
+        file: wifibtgnss/gnss.md
+    -   label: quecgnss - Internal GNSS Resolver 
+        file: wifibtgnss/quecgnss.md
+-   label: storelib
+    file: storelib/README.md
+    items:
+    -   label: securedata - Secure-Data Area 
+        file: storelib/securedata.md
+-   label: componentlib
+    file: componentlib/README.md
+    items:
+    -   label: uasyncio - Aoroutine
+        file: componentlib/uasyncio.md
+-   label: errcode
+    file: errcode/README.md
+    items:
+    -   label: QuecPython error code summary
+        file: errcode/error-code.md

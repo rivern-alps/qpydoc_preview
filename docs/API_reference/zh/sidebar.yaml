@@ -1,0 +1,211 @@
+items:
+-   label: Python标准库
+    file: stdlib/README.md
+    items:
+    -   label: uos - 基本系统服务
+        file: stdlib/uos.md
+    -   label: gc - 内存相关功能
+        file: stdlib/gc.md
+    -   label: ubinascii - 二进制与ASCII转换
+        file: stdlib/ubinascii.md
+    -   label: ucollections - 集合和容器类型
+        file: stdlib/ucollections.md
+    -   label: urandom - 生成随机数
+        file: stdlib/urandom.md
+    -   label: math - 数学运算
+        file: stdlib/math.md
+    -   label: usocket - socket模块
+        file: stdlib/usocket.md
+    -   label: uio - 输入输出流
+        file: stdlib/uio.md
+    -   label: ustruct - 打包和解压原始数据类型
+        file: stdlib/ustruct.md
+    -   label: ujson - JSON编码和解码
+        file: stdlib/ujson.md
+    -   label: utime - 时间相关功能
+        file: stdlib/utime.md
+    -   label: sys - 系统相关功能
+        file: stdlib/sys.md
+    -   label: uzlib - zlib解压缩
+        file: stdlib/uzlib.md
+    -   label: _thread - 多线程
+        file: stdlib/_thread.md
+    -   label: uhashlib - 哈希算法
+        file: stdlib/uhashlib.md
+-   label: IoT Library
+    file: iotlib/README.md
+    items:
+    -   label: dataCall - 拨号
+        file: iotlib/dataCall.md
+    -   label: sim - SIM卡功能
+        file: iotlib/sim.md
+    -   label: sms - 短信功能
+        file: iotlib/sms.md
+    -   label: voiceCall - 电话功能
+        file: iotlib/voiceCall.md
+    -   label: net - 网络相关功能
+        file: iotlib/net.md
+    -   label: modem - 设备相关
+        file: iotlib/modem.md
+    -   label: pm - 低功耗
+        file: iotlib/pm.md
+    -   label: cellLocator - 基站定位
+        file: iotlib/cellLocator.md
+    -   label: wifilocator - WIFI定位
+        file: iotlib/wifilocator.md
+    -   label: wifiScan - WiFi扫描
+        file: iotlib/wifiScan.md
+-   label: 外设总线
+    file:  peripherals/README.md
+    items: 
+    -   label: camera - 摄像扫码
+        file: peripherals/camera.md
+        items:
+        -   label: CamPreview - 摄像头预览
+            file: peripherals/camera.CamPreview.md
+        -   label: CamDecoder - 摄像头扫码
+            file: peripherals/camera.CamDecoder.md
+        -   label: CamCapture - 摄像头拍照
+            file: peripherals/camera.CamCapture.md
+    -   label: audio - 音频播放
+        file: peripherals/audio.md
+        items:
+        -   label: TTS - 文本到语音播放
+            file: peripherals/audio.TTS.md
+        -   label: Audio - 音频播放
+            file: peripherals/audio.Audio.md
+        -   label: Record - 录音
+            file: peripherals/audio.Record.md
+    -   label: machine - 硬件相关功能
+        file: peripherals/machine.md
+        items:
+        -   label: Pin - 控制I/O引脚
+            file: peripherals/machine.Pin.md
+        -   label: UART - 串口通信
+            file: peripherals/machine.UART.md
+        -   label: Timer - 硬件定时器
+            file: peripherals/machine.Timer.md
+        -   label: ExtInt - 外部中断
+            file: peripherals/machine.ExtInt.md
+        -   label: RTC - 实时时钟
+            file: peripherals/machine.RTC.md
+        -   label: I2C - I2C通信
+            file: peripherals/machine.I2C.md
+        -   label: I2C_simulation - 模拟I2C通信
+            file: peripherals/machine.I2C_simulation.md
+        -   label: SPI - SPI通信
+            file: peripherals/machine.SPI.md
+        -   label: SoftSPI - 模拟SPI通信
+            file: peripherals/machine.SoftSPI.md
+        -   label: LCD - LCD显示屏
+            file: peripherals/machine.LCD.md
+        -   label: WDT - 看门狗定时器
+            file: peripherals/machine.WDT.md
+        -   label: KeyPad - 矩阵键盘
+            file: peripherals/machine.KeyPad.md
+    -   label: misc - 其他
+        file: peripherals/misc.md
+        items:
+        -   label: Power - 关机和重启
+            file: peripherals/misc.Power.md
+        -   label: PowerKey - PowerKey按键回调注册
+            file: peripherals/misc.PowerKey.md
+        -   label: PWM - 脉宽调制
+            file: peripherals/misc.PWM.md
+        -   label: ADC - 模数转换
+            file: peripherals/misc.ADC.md
+        -   label: USB - USB插拔检测
+            file: peripherals/misc.USB.md
+        -   label: USBNET - USB网卡
+            file: peripherals/misc.USBNET.md
+    -   label: ethernet - 以太网相关功能
+        file: peripherals/ethernet.md
+        items:
+        -   label: W5500 - W5500驱动
+            file: peripherals/ethernet.W5500.md
+        -   label: DM9051 - DM9051驱动
+            file: peripherals/ethernet.DM9051.md
+        -   label: CH395 - CH395驱动
+            file: peripherals/ethernet.CH395.md
+        -   label: YT8512H - YT8512H驱动
+            file: peripherals/ethernet.YT8512H.md
+    -   label: qrcode - 二维码显示
+        file: peripherals/qrcode.md 
+-   label: 网络应用
+    file: networklib/README.md
+    items:
+    -   label: ussl - SSL算法
+        file: networklib/ussl.md
+    -   label: request - HTTP客户端
+        file: networklib/request.md
+    -   label: umqtt - MQTT客户端
+        file: networklib/umqtt.md
+    -   label: uwebsocket - websocket客户端
+        file: networklib/uwebsocket.md
+    -   label: checkNet - 网络就绪检测
+        file: networklib/checkNet.md
+    -   label: uping - 发送ping包
+        file: networklib/uping.md
+-   label: 系统API
+    file: syslib/README.md
+    items:
+    -   label: example - 执行python脚本
+        file: syslib/example.md
+    -   label: atcmd - 发送AT指令功能
+        file: syslib/atcmd.md
+    -   label: log - 日志输出
+        file: syslib/log.md
+    -   label: system - 环境配置
+        file: syslib/system.md
+    -   label: Queue - 消息队列
+        file: syslib/Queue.md
+    -   label: sys_bus - 会话总线
+        file: syslib/sys_bus.md
+    -   label: osTimer - os定时器
+        file: syslib/osTimer.md
+    -   label: ntptime - 网络时间同步
+        file: syslib/ntptime.md
+    -   label: fota - 固件升级相关功能
+        file: syslib/fota.md
+    -   label: app_fota - 用户文件升级相关功能
+        file: syslib/app_fota.md
+    -   label: ql_fs - 高级文件操作
+        file: syslib/ql_fs.md
+-   label: WIFI/BT/GNSS
+    file: wifibtgnss/README.md
+    items:
+    -   label: WLAN - 无线局域网相关功能
+        file: wifibtgnss/WLAN.md
+        items:
+        -   label: ESP8266 - 乐鑫ESP8266模组驱动
+            file: wifibtgnss/WLAN.ESP8266.md
+    -   label: ble - 低功耗蓝牙相关功能
+        file: wifibtgnss/ble.md
+    -   label: bt - 经典蓝牙相关功能
+        file: wifibtgnss/bt.md
+    -   label: gnss - 外置GNSS
+        file: wifibtgnss/gnss.md
+    -   label: quecgnss - 内置GNSS
+        file: wifibtgnss/quecgnss.md
+-   label: 云平台
+    file: cloudlib/README.md
+    items:
+    -   label: aLiYun - 阿里云服务
+        file: cloudlib/aLiYun.md
+    -   label: TenCentYun- 腾讯云服务
+        file: cloudlib/TenCentYun.md
+-   label: 存储
+    file: storelib/README.md
+    items:
+    -   label: securedata - 安全数据区
+        file: storelib/securedata.md
+-   label: 组件库
+    file: componentlib/README.md
+    items:
+    -   label: uasyncio - 协程
+        file: componentlib/uasyncio.md
+-   label: 错误码
+    file: errcode/README.md
+    items:
+    -   label: QuecPython 错误码汇总
+        file: errcode/error-code.md

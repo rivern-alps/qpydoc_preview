@@ -1,0 +1,97 @@
+items:
+  - label: Cloud platform
+    items:
+      - label: Access to alicloud
+        file: QuecPythonCloud/Aliyun.md
+      - label: Access Tencent cloud
+        file: QuecPythonCloud/TencentCloud.md
+      - label: Access to Quectel cloud
+        file: QuecPythonCloud/QuecCloud.md
+      - label: Access Huawei cloud
+        file: QuecPythonCloud/HuaweiCloud.md
+      - label: Access Amazon cloud
+        file: QuecPythonCloud/AmazonCloud.md
+  - label: Basic peripherals
+    items:
+      - label: LCD development
+        file: QuecPythonSub/LCD.md
+      - label: Camera debugging and development
+        file: QuecPythonSub/camera.md
+      - label: Nixie tube development
+        file: QuecPythonSub/Digital_tube.md
+      - label: Development of temperature&humidity sensor
+        file: QuecPythonSub/i2c_aht.md
+      - label: Development of photosensitive sensor
+        file: QuecPythonSub/Photoresistor.md
+      - label: Development of acceleration sensor
+        file: QuecPythonSub/i2c_lis2dh.md
+      - label: Development of stepping motor drive
+        file: QuecPythonSub/ebf_smd4805.md
+  - label: Component
+    items:
+      - label: Development of LED
+        file: QuecPythonBus/LED.md
+      - label: Buzzer development
+        file: QuecPythonBus/buzzer.md
+      - label: Key input development
+        file: QuecPythonBus/button.md
+      - label: Advanced development of serial port
+        file: QuecPythonBus/uart.md
+      - label: External interrupt development
+        file: QuecPythonBus/ExtInt.md
+      - label: Independent watchdog development
+        file: QuecPythonBus/WDT.md
+  - label: Third party component
+    items:
+      - label: MODBUS development
+        file: QuecPythonThird/modbus.md
+      - label: Asyncio development
+        file: QuecPythonThird/asyncio.md
+      - label: Blinker development
+        file: QuecPythonThird/blinker.md
+      - label: HLS development
+        file: QuecPythonThird/HLS.md
+      - label: Lvgl development
+        file: QuecPythonThird/lvgl.md
+      - label: Ble development
+        file: QuecPythonThird/BLE.md  
+  - label: Advanced components
+    items:
+      - label: Wi-Fi development
+        file: QuecPythonAdvance/wifi.md
+      # - label: sgmii development
+        # file: QuecPythonAdvance/sgmii.md
+      - label: HeliosService API
+        file: QuecPythonAdvance/HeliosService_API.md
+  - label: HeliosService
+    items:
+      - label: Heliosservice introduction
+        file: HeliosService/HeliosService_1.md
+      - label: Heliosservice advanced
+        file: HeliosService/HeliosService_2.md
+      - label: Heliosservice senior
+        file: HeliosService/HeliosService_3.md
+  - label: Mass production
+    items:
+      - label: Mass production tools
+        file: Mass_production/README.md
+      - label: Code encryption protection
+        file: Mass_production/CodeEncryption.md
+      - label: Data encryption protection
+        file: Mass_production/DataEncryption.md
+      - label: Backup and restore mechanism
+        file: Mass_production/QuecPythonBack.md
+  - label: HeliosSDK
+    items:
+      - label: HeliosSDK introduction
+        file: HeliosSDK/Helios_SDK_01.md
+      - label: HeliosSDK advanced
+        file: HeliosSDK/Helios_SDK_02.md
+      - label: HeliosSDK senior
+        file: HeliosSDK/Helios_SDK_03.md
+  - label: Tools
+    items:
+      - label: QPYcom interaction principle
+        file: QuecPythonTools/QPYcom_repl.md
+      - label: QPYcom instructions
+        file: QuecPythonTools/QPYcom.md

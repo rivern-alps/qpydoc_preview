@@ -1,0 +1,14 @@
+# Quecpyton产品介绍
+items:
+  - label: Introduction
+    file: README.md
+  - label: Architectural features
+    file: Qp_Product_intro/Arch_features.md
+  - label: Hardware selection
+    file: Qp_Product_intro/Hardware_Support.md
+  - label: Development board
+    file: Qp_Hw_EC600X/Hardware_Support_EC600X.md
+  - label: Data acquisition
+    file: Qp_Product_intro/Data_Acquisition.md
+  - label: Applicable scenario
+    file: Qp_Product_intro/Applicable_Scenarios.md

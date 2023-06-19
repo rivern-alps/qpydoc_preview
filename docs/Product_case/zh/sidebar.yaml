@@ -1,0 +1,21 @@
+items:
+- label: 量产案例介绍
+  file: README.md
+- label: 对讲机
+  file:  poc/README.md
+- label: 云喇叭
+  file:  Yunlaba/README.md
+- label: tracker
+  file:  tracker/README.md
+- label: DTU
+  items:
+    - label: DTU产品介绍
+      file:  dtu/DTU_Product_Introduction.md
+    - label: DTU用户指导
+      file:  dtu/DTU_User_Guides.md
+    - label: DTU协议规范
+      file:  dtu/DTU_Protocol_Specification.md
+    - label: DTU上位机工具用户指导
+      file:  dtu/DTU_GUI_User_Guides.md
+    - label: APTU用户指导
+      file:  dtu/APTU_User_Guides.md
