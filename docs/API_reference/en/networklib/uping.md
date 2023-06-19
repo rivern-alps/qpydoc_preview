@@ -1,19 +1,18 @@
-# uping - 发送ping包
+# class uping - Ping Package
 
-该模块实现了 IPv4 ping 请求功能。
+This class pings IPv4 request packages.
 
->1.可能会存在host地址无法建立socket连接异常。
->2.通过初始化参数中的`COUNT`和`INTERVAL`来确认发Ping包周期。
+> Note: 1. It may occur that the socket cannot be set up at the host address, causing a connection error. 2. Determine the ping period by initializing `COUNT` and `INTERVAL`.
 
-**示例：**
+**Example**
 
 ```python
-# 方式一
-# 打印输出方式
+# Mode 1
+# Print the output mode.
 import uping
-uping.ping('www.baidu.com')
+uping.ping('baidu.com')
 
-# 以下是uping的输出, 无返回值
+# The following lists the output of uping.start(), without return values.
 #72 bytes from 49.49.48.46: icmp_seq=1, ttl=53, time=1169.909000 ms
 #72 bytes from 49.49.48.46: icmp_seq=2, ttl=53, time=92.060000 ms
 #72 bytes from 49.49.48.46: icmp_seq=3, ttl=53, time=94.818000 ms
@@ -22,15 +21,15 @@ uping.ping('www.baidu.com')
 #round-trip min/avg/max = 92.06000000000001/367.916/1169.909 ms
 
 
-# 方式二
-# 设置quiet会得到输出结果
+# Mode 2
+# Set quiet to get the output.
 import uping
 result = uping.ping('baidu.com', quiet=True)
-# result可以拿到对应数据
+# The corresponding data can be gotten in the result.
 # result(tx=4, rx=4, losses=0, min=76.93899999999999, avg=131.348, max=226.697)
 ```
 
-## 发送 ping 请求
+## Constructor
 
 ### `uping.ping`
 
@@ -38,15 +37,17 @@ result = uping.ping('baidu.com', quiet=True)
 uping.ping(HOST, SOURCE=None, COUNT=4, INTERVAL=1000, SIZE=64, TIMEOUT=5000, quiet=False)
 ```
 
-周期性发送Ping包。
+Pings packages periodically.
 
-**参数描述：**
+**Parameter**
 
-- `HOST` - 主机名，字符串类型，所要ping的域名地址, 例如"baidu.com"。
-- `SOURCE` - 源地址，字符串类型，用于绑定, 一般情况下不需要传。
-- `COUNT` - 默认请求次数，整型，默认是4次,发送4次ping包。
-- `INTERVAL` - 间隔时间，整型，用于绑定, 一般情况下不需要传。
-- `SIZE` - 每次读取的包大小，整型，默认64, 无需修改。
-- `TIMEOUT` - 超时时间，整型，单位:ms, 默认5000ms。
-- `quiet` - 打印是否直接输出，布尔类型，默认:False,打印直接输出。若设为True, 默认打印的值会被转换成对象返回。
+| Parameter | Type | Description                                                  |
+| --------- | ---- | ------------------------------------------------------------ |
+| HOST      | str  | The IP address to be pinged, such as "baidu.com".            |
+| SOURCE    | str  | Source IP address, used for binding and with no need for input. |
+| COUNT     | int  | Default value: 4. Unit: time.                                |
+| INTERVAL  | int  | Interval. Default value: 1000. Unit: ms.                     |
+| SIZE      | int  | Size of the package read every time. Default value: 64. Unit: byte. No change is required. |
+| TIMEOUT   | int  | Timeout. Default value: 5000. Unit: ms.                      |
+| quiet     | bool | False: print and output directly. <br />True: The default value printed by *start* is converted to an object and returned.<br />Default: false. |
 

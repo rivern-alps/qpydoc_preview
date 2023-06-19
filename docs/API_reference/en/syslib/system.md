@@ -1,8 +1,8 @@
-# system - 环境配置
+# system - System Configuration
 
-模块功能：用于配置系统环境的参数以及功能
+This feature is used to configure the system parameter and features.
 
-> 适配版本：EC100Y(V0009)及以上；EC600S(V0002)及以上。
+Applicable modules: EC100Y(V0009) and above; EC600S(V0002) and above.
 
 
 ### `system.replSetEnable`
@@ -11,33 +11,43 @@
 system.replSetEnable(flag，**kw_args)
 ```
 
-开启/关闭交互保护,交互保护设置，参数设置如下
+Enables or disables interaction protection.
 
-1、只有一个参数flag时：
+**Parameter**
 
-0表示关闭，1表示开启，2表示查询当前加密状态；设置开启交互保护后所有外部指令以及代码都无法执行，为不可逆操作，请确认后开启，默认不开启。
+1.  When kw_args is omitted
 
-2、有两个参数时：
+0 - Disable (default)
 
-表示交互保护可通过密码开启和关闭(少数平台不支持密码保护功能，所以当遇到不支持的平台，输入密码会直接报错。如：BC25,600M)
+1 - Enable
 
-**参数描述：**
+2 - Query the current encryption status
 
-* `flag` -  int类型， 0 : 不开启（默认）；1 ：开启；2：查询加密状态
-* `kw_args` -  password，可为空 ，字符串类型
+After the interaction protection is enabled, all external commands and codes cannot be executed and the operation is irreversible. Please enable the  interaction protection after confirmation. Default value: 0.
 
-**返回值描述：**
+2. When kw_args is configured
 
-* 成功返回整型值0；
+Interaction protection can be enabled and disabled by a password. (Few module models do not support password protection, so when you enter a password on a module that does not support password protection, you will receive an error message. For example BC25 series and EC600M series modules.)
 
-* 失败返回整型值-1或者是errorlist
+* Parameter
 
-如果是查询加密状态，返回值：
--1：查询失败
-1：repl enable
-2：repl enable but The password has already been set
-3：repl refuse
-4：repl-protection by password
+| Parameter | Type | Description              |
+| :--- | :--- | ---------------------------- |
+| flag | Integer | 0 - Disable (default) <br />1 - Enable<br />2-  Query encryption status |
+| kw_args | String | Password (optional) |
+
+* Return Value
+
+0 - Successful execution
+
+-1 or errorlist or both - Failed execution
+
+If *flag* is set to 2, the return values are as follows.
+-1 - Querying failed
+1 - repl enable
+2- repl enable but The password has already been set
+3 - repl refuse
+4 - repl-protection by password
 
 
 ### `system.replChangPswd`
@@ -46,45 +56,47 @@ system.replSetEnable(flag，**kw_args)
 system.replChangPswd(old_password,new_password)
 ```
 
-更改交互保护密码
+Changes the password for interaction protection.
 
-**参数描述：**
+* Parameter
 
-* `old_password` -  旧密码 长度限制：6-12字节，字符串类型
-* `new_password` -  新密码 长度限制：6-12字节，字符串类型
+| Parameter    | Type   | Description                       |
+| :----------- | :----- | --------------------------------- |
+| old_password | String | Old password. Length: 6–12 bytes. |
+| new_password | String | New password. Length: 6–12 bytes. |
 
-**返回值描述：**
+* Return Value
 
-* 成功返回整型值0；
+0 - Successful execution
 
-* 失败返回整型值-1或者是errorlist
+-1 or errorlist or both - Failed execution
 
-**示例：**
+**Example**
 
 ```python
 >>>import system
 
->>> system.replSetEnable(1,password='miamia123')//开机首次设置密码并开启交互保护，可设置任意长度在6-12位之间的密码内容
+>>> system.replSetEnable(1,password='miamia123')//Set a password for the first time upon startup and enable interaction protection. You can set a password with a length of 6 to 12 bytes.
 0
->>>                                            //设置成功，交互口被锁，需要输入密码才能正常使用
+>>>                                            //Set successfully. The interaction interface is locked and only can be used after you enter the password.
 Please enter password:
->>> ******                                     //密码错误
+>>> ******                                     //Incorrect password.
 Incorrect password, please try again:
->>> ********                                   //密码错误
+>>> ********                                   //Incorrect password.
 Incorrect password, please try again:
->>> *********                                  //密码正确，可正常交互
+>>> *********                                  //Correct password. The interaction interface is available.
 REPL enable
 >>> system.replSetEnable(2)
 2
 >>>
 
->>> system.replSetEnable(1,password='miamia') //已经设置过密码，如果需要重新锁住交互口，需要输入正确密码
+>>> system.replSetEnable(1,password='miamia') //A password has been set. You need to enter the correct password to relock the interaction interface.
 Incorrect password!
 -1
 >>> system.replSetEnable(1,password='miamia123')
 0
 >>> 
-Please enter password:                        //交互口重新锁住
+Please enter password:                        //Relock the interaction interface.
 >>> miamia123
 *********
 REPL enable
@@ -92,27 +104,27 @@ REPL enable
 2
 
 
->>> system.replChangPswd(old_password='miamia123',new_password='123456') //change password
+>>> system.replChangPswd(old_password='miamia123',new_password='123456') //Change password.
 0
->>> system.replSetEnable(1,password='miamia123')                         //更改密码成功之后，继续用老密码锁交互口，提示密码不正确
+>>> system.replSetEnable(1,password='miamia123')                         //The password has been changed, so the message "incorrect password" will be prompted if you try to lock the interface with the old password.
 Incorrect password!
 -1
->>> system.replSetEnable(1,password='123456')                            //新密码重新加锁交互口，成功
+>>> system.replSetEnable(1,password='123456')                            //Relock the interaction interface with the new password successfully.
 0
 >>> 
 Please enter password:
 >>> ******
 REPL enable
 
->>> system.replSetEnable(0,password='123456')          //取消密码保护（取消加密保护之后可使用任意新密码重新加锁交互口）
+>>> system.replSetEnable(0,password='123456')          //Disable interaction protection, after which you can use any password to relock the interaction interface.
 
 0
 >>> 
->>> system.replSetEnable(2)                            //查询状态为repl enable
+>>> system.replSetEnable(2)                            //Query the current interaction protection status.
 1
->>> system.replSetEnable(0)                           //默认就已经是0
+>>> system.replSetEnable(0)                           //Default value: 0.
 0
->>>system.replSetEnable(1)                            //开启交互保护
+>>>system.replSetEnable(1)                            //Enable interaction protection.
 >>>
 REPL refuse
 >>>

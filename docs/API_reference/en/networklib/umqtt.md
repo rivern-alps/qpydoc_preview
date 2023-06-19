@@ -1,50 +1,45 @@
-# umqtt - MQTT客户端
+# umqtt - MQTT Protocol
 
-模块功能:提供创建MQTT客户端发布订阅功能。
+This feature is used to create MQTT clients to publish and subscribe to topics.
 
 ```
-QoS级别说明
-在MQTT协议中，定义了三个级别的QoS，分别是：
-QoS0 – 最多一次，是最低级别；发送者发送完消息之后，并不关心消息是否已经到达接收方；
-QoS1 – 至少一次，是中间级别；发送者保证消息至少送达到接收方一次；
-QoS2 – 有且仅有一次，是最高级别；保证消息送达且仅送达一次。
+QoS Level Description
+In MQTT protocol, three levels of QoS are defined.
+QoS0 – At most once. Lowest level. After sending the message, the sender does not care whether the message has been received by the receiver.
+QoS1 – At least once. Middle level. The message is guaranteed to be received by the receiver at least once.
+QoS2 – Only once. Highest level. The message is guaranteed to be received by the receiver only once.
 ```
 
-## 构造函数
+## Initialize MQTT
 
-### `umqtt.MQTTClient`
+### `MQTTClient`
 
 ```python
-class umqtt.MQTTClient(client_id, server, port=0, user=None, password=None, keepalive=0, ssl=False, ssl_params={},reconn=True,version=4)
+MQTTClient(client_id, server, port=0, user=None, password=None, keepalive=0, ssl=False, ssl_params={},reconn=True,version=4)
 ```
 
-构建mqtt连接对象。
+Creates MQTT clients.
 
-**参数描述：**
+* Parameter
 
-* `client_id` - 客户端 ID，字符串类型，具有唯一性。
+| Parameter  | Type    | Description                                                  |
+| ---------- | ------- | ------------------------------------------------------------ |
+| client_id  | String  | Client ID. Each client ID is unique.                         |
+| server     | String  | Server address, which can be an IP address or domain name.   |
+| port       | Integer | Server port (optional). Default value: 1883. The default port of MQTT over SSL/TLS is 8883. |
+| user       | String  | Username registered on the server (optional).                |
+| password   | String  | Password registered on the server (optional).                |
+| keepalive  | Integer | Timeout of keep-alive (optional). Default value: 0. Unit: s. |
+| ssl        | bool    | Enable or disable SSL/TSL encryption.                        |
+| ssl_params | String  | SSL/TLS parameter (optional).                                |
+| reconn     | bool    | Enable or disable the internal reconnection mechanism (optional). Default value: True (enable). |
+| version    | Integer | The selected MQTT version (optional). version=3 indicates MQTTv3.1. Default value: 4. version=4 indicates MQTTv3.1.1. |
 
-* `server` - 服务端地址，字符串类型，可以是 IP 或者域名。
+* Return Value 
 
-* `port` - 服务器端口（可选），整数类型，默认为1883，请注意，MQTT over SSL/TLS的默认端口是8883。
+An MQTT client.
 
-* `user` - （可选) 在服务器上注册的用户名，字符串类型。
-
-* `password` - （可选) 在服务器上注册的密码，字符串类型。
-
-* `keepalive` - （可选）客户端的keepalive超时值，整数类型，默认为0。
-
-* `ssl` - （可选）是否使能 SSL/TLS 支持，布尔值类型。
-
-* `ssl_params` - （可选）SSL/TLS 参数，字符串类型。
-
-* `reconn` - （可选）控制是否使用内部重连的标志，布尔值类型，默认开启为True。
-
-* `version` - （可选）选择使用mqtt版本，整数类型，version=3开启MQTTv3.1，默认version=4开启MQTTv3.1.1。
-
-
-
-## 设置相关功能和回调
+## Set Callback Function
 
 ### `MQTTClient.set_callback`
 
@@ -52,29 +47,18 @@ class umqtt.MQTTClient(client_id, server, port=0, user=None, password=None, keep
 MQTTClient.set_callback(callback)
 ```
 
-设置回调函数，收到消息时会被调用。
 
->回调函数不建议处理阻塞API，会影响mqtt消息接收。
+Sets the callback function of receiving messages.
 
+* Parameter
 
-**参数描述：**
+| Parameter | Type     | Description                                  |
+| --------- | -------- | -------------------------------------------- |
+| callback  | function | The callback function of receiving messages. |
 
-* `callback` -  设置异常回调函数，function(topic, data)类型
+* Return Value
 
-**示例：**
-
-```python
-from umqtt import MQTTClient
-
-def data_cb(topic, data):
-    try:
-        print("umqtt recv topic[%s] data:%s:"%(topic, data))
-    except Exception as e:
-        print("Handle error:%s"%str(e))
-
-c = MQTTClient("umqtt_client", "mq.tongxinmao.com", 18830)
-c.set_callback(data_cb)
-```
+None
 
 ### `MQTTClient.error_register_cb`
 
@@ -82,25 +66,27 @@ c.set_callback(data_cb)
 MQTTClient.error_register_cb(callback)
 ```
 
-设置异常回调函数，使用内部重连的情况下umqtt内部线程异常时通过回调返回error信息。
+Sets the callback function of error occurrence. When the MQTT internal thread is abnormal, the error message is returned by the callback function. The callback function can be called only when the internal reconnection is not enabled. 
 
-**参数描述：**
+* Parameter 
 
-* `callback` - 设置异常回调函数，function(error)类型
+| Parameter | Type     | Description                                 |
+| --------- | -------- | ------------------------------------------- |
+| callback  | function | The callback function of error occurrences. |
 
-**示例：**
+* Return Value
+
+None
+
+Example
+
 ```python
 from umqtt import MQTTClient
 
 def err_cb(err):
-    print("thread err:%s"%err)
-    if err == "reconnect_start":
-        print("start reconnect")
-    elif err == "reconnect_success":
-        print("success reconnect")
-    else:
-        print("reconnect FAIL")
-
+    print("thread err:")
+    print(err)
+    
 c = MQTTClient("umqtt_client", "mq.tongxinmao.com", 18830)
 c.error_register_cb(err_cb)
 ```
@@ -111,20 +97,22 @@ c.error_register_cb(err_cb)
 MQTTClient.set_last_will(topic,msg,retain=False,qos=0)
 ```
 
-设置要发送给服务器的遗嘱，客户端没有调用disconnect()异常断开，则发送通知到其他客户端。
+Sets the last will to be sent to the MQTT server. If a client ungracefully disconnects from the server without calling *MQTTClient.disconnect()*, the last will will be sent to other clients.
 
-**参数描述：**
+* Parameter
 
-* `topic` -  mqtt遗嘱主题，字符串类型。
+| Parameter | Type    | Description                                                  |
+| --------- | ------- | ------------------------------------------------------------ |
+| topic     | String  | Last-will topic.                                             |
+| msg       | String  | Last-will content                                            |
+| retain    | bool    | When *retain* = True, the MQTT broker will retain the message. Default value: False. |
+| qos       | Integer | Quality of Service, 0 or 1.                                  |
 
-* `msg` -  遗嘱的内容，字符串类型。
+* Return Value
 
-* `retain` -  retain = True boker会一直保留消息，默认False，布尔值类型。
+None
 
-* `qos` -  整数类型，消息服务质量(0~1)。
-
-
-## MQTT连接相关功能
+## MQTT Connection Related Features
 
 ### `MQTTClient.connect`
 
@@ -132,18 +120,20 @@ MQTTClient.set_last_will(topic,msg,retain=False,qos=0)
 MQTTClient.connect(clean_session=True)
 ```
 
-与服务器建立连接，连接失败会导致MQTTException异常。
 
->mqtt相关操作要在确认connect成功后执行。
+Connects to MQTT server. Failed connection leads to an MQTT exception.
 
-**参数描述：**
+* Parameter
 
-* `clean_session` -  布尔值类型，可选参数，一个决定客户端类型的布尔值。 如果为True，那么代理将在其断开连接时删除有关此客户端的所有信息。 如果为False，则客户端是持久客户端，当客户端断开连接时，订阅信息和排队消息将被保留。默认为True。
+| Parameter     | Type | Description                                                  |
+| ------------- | ---- | ------------------------------------------------------------ |
+| clean_session | bool | Client session type, optional parameter. If this value is True, the MQTT server will delete all information about the client when the client disconnects from the MQTT server. If this value is False, the client session is persistent, that is, when the client disconnects from the MQTT server, the subscription and queuing information will be retained. Default value: False. |
 
-**返回值描述：**
+* Return Value
 
-成功返回0，失败则抛出异常。
+0 – Successful execution
 
+Error message – Failed execution
 
 ### `MQTTClient.disconnect`
 
@@ -151,8 +141,15 @@ MQTTClient.connect(clean_session=True)
 MQTTClient.disconnect()
 ```
 
-与服务器断开连接，释放相关资源。
+Disconnects from the MQTT server.
 
+* Parameter
+
+None
+
+* Return Value
+
+None
 
 ### `MQTTClient.close`
 
@@ -160,10 +157,17 @@ MQTTClient.disconnect()
 MQTTClient.close()
 ```
 
-释放socket资源,(注意区别disconnect方法，close只释放socket资源，disconnect包含线程等资源)。
+Releases socket resources. (Please note the differences between *MQTTClient.disconnect()* and *MQTTClient.close()*, where *MQTTClient.close()* only releases socket resources but *MQTTClient.disconnect()* releases resources including threads.)
 
->该方法仅用于在自己实现重连时使用，具体请参照mqtt重连示例代码，正常关闭mqtt连接请使用disconnect。
+Note: This method can be used only when the client needs to reconnect to the MQTT server. See ***Example of MQTT Reconnection After Ungraceful Disconnection*** below for details. Call *MQTTClient.disconnect()* to normally disconnect from the MQTT server.
 
+* Parameter
+
+None
+
+* Return Value
+
+None
 
 ### `MQTTClient.ping`
 
@@ -171,33 +175,38 @@ MQTTClient.close()
 MQTTClient.ping()
 ```
 
-当keepalive不为0且在时限内没有通讯活动，会主动向服务器发送ping包, 检测保持连通性，keepalive为0则不开启。
+Pings to MQTT server to check the connection when *keepalive* is not 0. When *keepalive* is 0, this method is disabled.
 
+* Parameter
 
-## 发布订阅相关功能
+None
+
+* Return Value
+
+None
+
+## Publish and Subscribe Related Features
 
 ### `MQTTClient.publish`
 
 ```python
-MQTTClient.publish(topic, msg, retain=False, qos=0)
+MQTTClient.publish(topic,msg, retain=False, qos=0)
 ```
 
-发布消息到对应topic。
+Publishes messages.
 
-**参数描述：**
+* Parameter
 
-* `topic` -  mqtt 消息主题，字符串类型
+| Parameter | Type | Description                                                |
+| ----- | ----- | ------------------------------------------------------------ |
+| topic  | String | Message topic.                                  |
+| msg    | String | Data to be sent.                             |
+| retain | bool   | Default value: False. If this value is set to True when you send a message, the message is retained.<br />The MQTT server retains the last received message with a RETAIN flag bit of True on the server. Whenever the MQTT client connects to the MQTT server and subscribes to a topic, if there is a Retained message under that topic, the MQTT server immediately pushes the Retained message to the client. <br />Note: The MQTT server will only save the last received message with the RETAIN flag bit of True for each topic, that is, if the MQTT server saves one retained message for a Topic, when the client publishes a new retained message, the original message on the server is overwritten. |
+| qos    | Integer | MQTT QoS, 0 or 1. Default value: 0. <br />0 – The sender sends a message only once.<br />1 – The sender sends a message at least once and guarantees that the message has been delivered to the MQTT broker. |
 
-* `msg` -  需要发送的数据，字符串类型
+* Return Value
 
-* `retain` -  布尔值类型，默认为False, 发布消息时把retain设置为true，即为保留信息。<br />MQTT服务器会将最近收到的一条RETAIN标志位为True的消息保存在服务器端, 每当MQTT客户端连接到MQTT服务器并订阅了某个topic，如果该topic下有Retained消息，那么MQTT服务器会立即向客户端推送该条Retained消息 <br />特别注意：MQTT服务器只会为每一个Topic保存最近收到的一条RETAIN标志位为True的消息！也就是说，如果MQTT服务器上已经为某个Topic保存了一条Retained消息，当客户端再次发布一条新的Retained消息，那么服务器上原来的那条消息会被覆盖！ |
-
-* `qos` -  整数类型， MQTT消息服务质量（默认0，可选择0或1）0：发送者只发送一次消息，不进行重试  1：发送者最少发送一次消息，确保消息到达Broker
-
-**返回值描述：**
-
-成功返回布尔型True，失败返回布尔型False。
-
+None
 
 ### `MQTTClient.subscribe`
 
@@ -205,14 +214,34 @@ MQTTClient.publish(topic, msg, retain=False, qos=0)
 MQTTClient.subscribe(topic,qos)
 ```
 
-订阅mqtt主题。
+Subscribes to MQTT topics.
 
-**参数描述：**
+* Parameter
 
-* `topic` -  mqtt topic主题，字符串类型。
+| Parameter | Type | Description                                                |
+| ---- | ----- | ------------------------------------------------------------ |
+| topic | String | topic                                                        |
+| qos   | Integer | MQTT QoS, 0 or 1. Default value: 0. <br />0 – The sender sends a message only once.<br />1 – The sender sends a message at least once and guarantees that the message has been delivered to the MQTT broker. |
 
-* `qos` -  MQTT消息服务质量（默认0，可选择0或1），整数类型 <br />0：发送者只发送一次消息，不进行重试  1：发送者最少发送一次消息，确保消息到达Broker。
+* Return Value
 
+None
+
+### `MQTTClient.check_msg`
+
+```python
+MQTTClient.check_msg()
+```
+
+Checks whether the MQTT server has messages to be processed.
+
+* Parameter
+
+None
+
+* Return Value
+
+None
 
 ### `MQTTClient.wait_msg`
 
@@ -220,8 +249,15 @@ MQTTClient.subscribe(topic,qos)
 MQTTClient.wait_msg()
 ```
 
-阻塞等待服务器消息响应。
+Blocks waiting for a message response from the MQTT server.
 
+* Parameter
+
+None
+
+* Return Value
+
+None
 
 ### `MQTTClient.get_mqttsta`
 
@@ -229,25 +265,31 @@ MQTTClient.wait_msg()
 MQTTClient.get_mqttsta()
 ```
 
-获取mqtt连接状态。
+Gets MQTT connection status.
 
-注意：BG95平台不支持该API。
+Note:
 
->如果用户调用了 disconnect() 方法之后，再调用 MQTTClient.get_mqttsta() 会返回-1，因为此时创建的对象资源等都已经被释放。
+ 1. BG95 series module does not support the API.
+
+2. If you call *MQTTClient.disconnect()* before calling *MQTTClient.get_mqttsta()*, -1 will be returned, because the created object resources are released.
+
+* Parameter
+
+None
+
+* Return Value
+
+0 – Successful connection
+
+1 – Connecting
+
+2 – Server connection closed 
+
+-1 – Connection error 
 
 
-**返回值描述：**
 
-0：连接成功。
-
-1：连接中。
-
-2：服务端连接关闭。
-
--1：连接异常。
-
-
-**示例：**
+**Example**
 
 ```python
 '''
@@ -264,14 +306,14 @@ import checkNet
 
 
 '''
-下面两个全局变量是必须有的，用户可以根据自己的实际项目修改下面两个全局变量的值
+The following two global variables are required. You can modify the values of the following two global variables according to your actual projects.
 '''
 PROJECT_NAME = "QuecPython_MQTT_example"
 PROJECT_VERSION = "1.0.0"
 
 checknet = checkNet.CheckNetwork(PROJECT_NAME, PROJECT_VERSION)
 
-# 设置日志输出级别
+# Set the log output level.
 log.basicConfig(level=log.INFO)
 mqtt_log = log.getLogger("MQTT")
 
@@ -289,37 +331,37 @@ if __name__ == '__main__':
     if stagecode == 3 and subcode == 1:
         mqtt_log.info('Network connection successful!')
 
-        # 创建一个mqtt实例
+        # Create an MQTT example.
         c = MQTTClient("umqtt_client", "mq.tongxinmao.com", 18830)
-        # 设置消息回调
+        # Set the callback function of receiving messages.
         c.set_callback(sub_cb)
-        #建立连接
+        # Connect to the MQTT server.
         c.connect()
-        # 订阅主题
+        # Subscribe to a topic.
         c.subscribe(b"/public/TEST/quecpython")
         mqtt_log.info("Connected to mq.tongxinmao.com, subscribed to /public/TEST/quecpython topic" )
-        # 发布消息
+        # Publish a message.
         c.publish(b"/public/TEST/quecpython", b"my name is Quecpython!")
         mqtt_log.info("Publish topic: /public/TEST/quecpython, msg: my name is Quecpython")
 
         while True:
-            c.wait_msg()  # 阻塞函数，监听消息
+            c.wait_msg()  # Blocking function of monitoring messages.
             if state == 1:
                 break
-        # 关闭连接
+        # Disconnects from the MQTT server.
         c.disconnect()
     else:
         mqtt_log.info('Network connection failed! stagecode = {}, subcode = {}'.format(stagecode, subcode))
 
 ```
 
-**MQTT断网异常重连示例**
+**Example of MQTT Reconnection After Ungraceful Disconnection**
 
-特别说明：
+Note：
 
-1.下面示例代码中mqtt的reconn参数用于控制使用或关闭umqtt内部的重连机制，默认为True，使用内部重连机制。
+1. The parameter *reconn* in the following example enables or disables the internal reconnection mechanism. Default value: True (enable).
 
-2.如需测试或使用外部重连机制可参考此示例代码，测试前需将reconn=False,否则默认会使用内部重连机制！
+2. If you need to test or use the external reconnection mechanism, please refer to this example code below. Before testing, set reconn to False, otherwise, the internal reconnection mechanism will be used by default.
 
 ```python
 '''
@@ -330,8 +372,8 @@ if __name__ == '__main__':
 @FilePath: example_mqtt_file.py
 '''
 '''
-下面两个全局变量是必须有的，用户可以根据自己的实际项目修改下面两个全局变量的值，
-在执行用户代码前，会先打印这两个变量的值。
+The following two global variables are required. You can modify the values of the following two global variables according to your actual projects.
+The values of these two variables are printed before the user code is executed.
 '''
 import utime
 import log
@@ -346,21 +388,21 @@ PROJECT_VERSION = "1.0.0"
 
 checknet = checkNet.CheckNetwork(PROJECT_NAME, PROJECT_VERSION)
 
-# 调用disconnect后会通过该状态回收线程资源
+# Reclaim the thread resource through the status after calling MQTTClient.disconnect().
 TaskEnable = True
-# 设置日志输出级别
+# Set the log output level.
 log.basicConfig(level=log.INFO)
 mqtt_log = log.getLogger("MQTT")
 
 
-# 封装mqtt，使其可以支持更多自定义逻辑
+# Encapsulate MQTT so it can support more custom logic.
 class MqttClient():
     '''
     mqtt init
     '''
 
-    # 说明：reconn该参数用于控制使用或关闭umqtt内部的重连机制，默认为True，使用内部重连机制。
-    # 如需测试或使用外部重连机制可参考此示例代码，测试前需将reconn=False,否则默认会使用内部重连机制！
+    # Note: The parameter reconn enables or disables the internal reconnection mechanism. Default value: True (enable).
+    # If you need to test or use the external reconnection mechanism, please refer to this example code below. Before testing, set reconn to False, otherwise, the internal reconnection mechanism will be used by default.
     def __init__(self, clientid, server, port, user=None, password=None, keepalive=0, ssl=False, ssl_params={},
                  reconn=True):
         self.__clientid = clientid
@@ -373,121 +415,121 @@ class MqttClient():
         self.__ssl_params = ssl_params
         self.topic = None
         self.qos = None
-        # 网络状态标志
+        # Network status flag.
         self.__nw_flag = True
-        # 创建互斥锁
+        # Create a mutex.
         self.mp_lock = _thread.allocate_lock()
-        # 创建类的时候初始化出mqtt对象
+        # Create a class to initialize the MQTT object.
         self.client = MQTTClient(self.__clientid, self.__server, self.__port, self.__uasename, self.__pw,
                                  keepalive=self.__keepalive, ssl=self.__ssl, ssl_params=self.__ssl_params,
                                  reconn=reconn)
 
     def connect(self):
         '''
-        连接mqtt Server
+        Connect to the MQTT server.
         '''
         self.client.connect()
-        # 注册网络回调函数，网络状态发生变化时触发
+        # Register the callback function of network status. When the network status changes, the function will be called.
         flag = dataCall.setCallback(self.nw_cb)
         if flag != 0:
-            # 回调注册失败
+            # The network callback registration failed.
             raise Exception("Network callback registration failed")
 
     def set_callback(self, sub_cb):
         '''
-        设置mqtt回调消息函数
+        Set the callback function of receiving messages.
         '''
         self.client.set_callback(sub_cb)
 
     def error_register_cb(self, func):
         '''
-        注册一个接收umqtt内线程异常的回调函数
+        Set the callback function of receiving MQTT thread error occurrence.
         '''
         self.client.error_register_cb(func)
 
     def subscribe(self, topic, qos=0):
         '''
-        订阅Topic
+        Subscribe to topics.
         '''
-        self.topic = topic  # 保存topic ，多个topic可使用list保存
-        self.qos = qos  # 保存qos
+        self.topic = topic  # Save the topic. Multiple topics can be saved by a list.
+        self.qos = qos  # Save the QoS.
         self.client.subscribe(topic, qos)
 
     def publish(self, topic, msg, qos=0):
         '''
-        发布消息
+        Publish a message.
         '''
         self.client.publish(topic, msg, qos)
 
     def disconnect(self):
         '''
-        关闭连接
+        Disconnect from the MQTT server.
         '''
         global TaskEnable
-        # 关闭wait_msg的监听线程
+        # Close the monitoring thread of wait_msg.
         TaskEnable = False
-        # 关闭之前的连接，释放资源
+        # Disconnect from the MQTT server and release the resources.
         self.client.disconnect()
 
     def reconnect(self):
         '''
-        mqtt 重连机制(该示例仅提供mqtt重连参考，根据实际情况调整)
-        PS：1.如有其他业务需要在mqtt重连后重新开启，请先考虑是否需要释放之前业务上的资源再进行业务重启
-            2.该部分需要自己根据实际业务逻辑添加，此示例只包含mqtt重连后重新订阅Topic
+        MQTT reconnection mechanism (The following example is for your reference only and you can adjust based on actual needs.)
+        Note: 1. If other services need to be restarted after the client reconnects to the server, determine whether to release the resources of the previous services before restarting the services.
+              2. This section needs to be added based on the actual business logic, and this example only covers the process that the client resubscribes to topics after reconnecting to the MQTT server.
         '''
-        # 判断锁是否已经被获取
+        # Determine whether the lock has been acquired.
         if self.mp_lock.locked():
             return
         self.mp_lock.acquire()
-        # 重新连接前关闭之前的连接，释放资源(注意区别disconnect方法，close只释放socket资源，disconnect包含mqtt线程等资源)
+        # Close the previous connection before reconnecting to release resources. Please note the differences between *MQTTClient.disconnect()* and *MQTTClient.close()*, where MQTTClient.close() only releases socket resources but *MQTTClient.disconnect()* releases resources including threads.
         self.client.close()
-        # 重新建立mqtt连接
+        # Reconnect to the MQTT server.
         while True:
-            net_sta = net.getState()  # 获取网络注册信息
+            net_sta = net.getState()  # Get network registration information.
             if net_sta != -1 and net_sta[1][0] == 1:
-                call_state = dataCall.getInfo(1, 0)  # 获取拨号信息
+                call_state = dataCall.getInfo(1, 0)  # Get data call information.
                 if (call_state != -1) and (call_state[2][0] == 1):
                     try:
-                        # 网络正常，重新连接mqtt
+                        # The network is normal. Reconnect to the MQTT server.
                         self.connect()
                     except Exception as e:
-                        # 重连mqtt失败, 5s继续尝试下一次
+                        # Reconnection to the MQTT server failed. Try again 5 s later.
                         self.client.close()
                         utime.sleep(5)
                         continue
                 else:
-                    # 网络未恢复，等待恢复
+                    # The network is unrestored. Please wait.
                     utime.sleep(10)
                     continue
-                # 重新连接mqtt成功，订阅Topic
+                # Connect to the MQTT server successfully and subscribe to the topic.
                 try:
-                    # 多个topic采用list保存，遍历list重新订阅
+                    # Multiple topics can be saved by a list. Traverse the list to resubscribe the topic.
                     if self.topic is not None:
                         self.client.subscribe(self.topic, self.qos)
                     self.mp_lock.release()
                 except:
-                    # 订阅失败，重新执行重连逻辑
+                    # Subscription failed. Reconnect to the MQTT server.
                     self.client.close()
                     utime.sleep(5)
                     continue
             else:
                 utime.sleep(5)
                 continue
-            break  # 结束循环
-        # 退出重连
+            break  # Stop loop.
+        # Exit and reconnect.
         return True
 
     def nw_cb(self, args):
         '''
-        dataCall 网络回调
+        Call the callback function of data call.
         '''
         nw_sta = args[1]
         if nw_sta == 1:
-            # 网络连接
+            # Network connected.
             mqtt_log.info("*** network connected! ***")
             self.__nw_flag = True
         else:
-            # 网络断线
+            # Network disconnected.
             mqtt_log.info("*** network not connected! ***")
             self.__nw_flag = False
 
@@ -498,15 +540,15 @@ class MqttClient():
                     break
                 self.client.wait_msg()
             except OSError as e:
-                # 判断网络是否断线
+                # Determine whether the network is disconnected.
                 if not self.__nw_flag:
-                    # 网络断线等待恢复进行重连
+                    # Reconnect after the network is restored from disconnection.
                     self.reconnect()
-                # 在socket状态异常情况下进行重连
+                # Reconnect when the socket status is abnormal.
                 elif self.client.get_mqttsta() != 0 and TaskEnable:
                     self.reconnect()
                 else:
-                    # 这里可选择使用raise主动抛出异常或者返回-1
+                    # You can call the raise method to return an exception or -1.
                     return -1
 
     def loop_forever(self):
@@ -514,15 +556,13 @@ class MqttClient():
 
 if __name__ == '__main__':
     '''
-    手动运行本例程时，可以去掉该延时，如果将例程文件名改为main.py，希望开机自动运行时，需要加上该延时,
-    否则无法从CDC口看到下面的 poweron_print_once() 中打印的信息
+    When running this routine manually, you can remove this delay. If you change the file name of the routine to main.py, you need to add this delay when you want to start the routine automatically. Otherwise, you cannot see the information printed in poweron_print_once() below from the CDC interface.
     '''
     utime.sleep(5)
     checknet.poweron_print_once()
     '''
-    如果用户程序包含网络相关代码，必须执行 wait_network_connected() 等待网络就绪（拨号成功）；
-    如果是网络无关代码，可以屏蔽 wait_network_connected()
-    【本例程必须保留下面这一行！】
+    If the user program contains network-related codes, it must execute wait_network_connected() to wait for the network to be ready (successful data call); If it is a network-independent code, you can mask wait_network_connected().
+    【This routine must retain the following line.】
     '''
     checknet.wait_network_connected()
 
@@ -534,29 +574,30 @@ if __name__ == '__main__':
     
     def err_cb(error):
         '''
-        接收umqtt线程内异常的回调函数
+        Set the callback function of receiving MQTT thread error occurrence.
+
         '''
     	mqtt_log.info(error)
-    	c.reconnect() # 可根据异常进行重连
+    	c.reconnect() # Reconnect to MQTT server after error occurrences.
         
     # c = MqttClient("umqtt_client_753", "mq.tongxinmao.com", 18830, reconn=False)
-    # 设置消息回调
+    # Set the callback function of receiving messages.
     c.set_callback(sub_cb)
-    # 设置异常回调
+    # Set the callback function of error occurrence.
     c.error_register_cb(err_cb)
-    # 建立连接
+    # Connect to the MQTT server.
     c.connect()
-    # 订阅主题
+    # Subscribe to topics.
     c.subscribe(b"/public/TEST/quecpython758")
     mqtt_log.info("Connected to mq.tongxinmao.com, subscribed to /public/TEST/quecpython topic")
-    # 发布消息
+    # Publish a message.
     c.publish(b"/public/TEST/quecpython758", b"my name is Quecpython!")
     mqtt_log.info("Publish topic: /public/TEST/quecpython758, msg: my name is Quecpython")
-    # 监听mqtt消息
+    # Monitor MQTT messages. 
     c.loop_forever()
-    # 等待5s接收消息
-    # PS:如果需要测试重连，包括服务器断开连接等情况，请注释掉c.disconnect()和utime.sleep(5)
+    # Wait for 5 s to receive the message.
+    # Note: Comment c.disconnect () and utime.sleep(5) if you want to test the reconnection mechanism, including server disconnection.
     # utime.sleep(5)
-    # 关闭连接
+    # Disconnect to the MQTT server.
     # c.disconnect()
 ```

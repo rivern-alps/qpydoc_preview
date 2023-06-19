@@ -1,25 +1,17 @@
-# ntptime - 网络时间同步
+# ntptime - Network Time Protocol
 
-该模块用于网络时间同步。
+This feature is used for time synchronization.
 
-> BC25PA平台电信卡开卡时需要说明SIM卡须支持此类业务，移动联通一般不限制(开卡时需要和运营商确认)。
+Note: You need to confirm with the carrier whether the current SIM card supports this feature.
 
-
-
-## 获取ntp服务器
 
 ### `ntptime.host`
 
 ```python
 ntptime.host
 ```
-**返回值描述：**
 
-* 返回当前的ntp服务器，默认为"ntp.aliyun.com"。
-
-
-
-## 设置ntp服务器
+Returns the current NTP server address. Default value: "ntp.aliyun.com".
 
 
 ### `ntptime.sethost`
@@ -28,42 +20,44 @@ ntptime.host
 ntptime.sethost(host)
 ```
 
-**参数描述：**
+Sets NTP server address.
 
-* `host` -  ntp服务器地址，字符串类型
+* Parameter
 
-**返回值描述：**
+| Parameter | Type   | Description        |
+| :-------- | :----- | ------------------ |
+| host      | String | NTP server address |
 
-* 成功返回整型值0，失败返回整型值-1。
+* Return Value
 
+0 - Successful execution
 
-
-## 同步ntp时间
+-1 - Failed execution
 
 
 ### `ntptime.settime`
 
 ```python
-ntptime.settime(timezone=0, use_rhost=1, timeout=10)
+ntptime.settime(timezone=0)
 ```
 
-**参数描述：**
+Synchronize NTP server time.
 
-* `timezone` - int类型，可选参数，时区设置，默认为0, 范围 (-12~12)。（-数为西时区，正数为东时区）
+* Parameter
 
-* `use_rhost` - int类型，可选参数，ntptime.host 对时失败时，是否使用备用服务器继续尝试对时，默认为1，使用备用服务器，设为0时，仅使用ntptime.host对时。
+| Parameter | Type | Description |
+| :------- | :----- | ------------- |
+| timezone | Integer | Range: -12 to 12. Default value: 0. |
 
-* `timeout` - int类型，可选参数，socket网络请求超时时间（单位为秒），默认为10，范围：>0。
+* Return Value
 
-  
+0 - Successful execution
 
-**返回值描述：**
-
-* 成功返回整型值`0`，失败返回整型值`-1`。
+-1 - Failed execution
 
 
 
-**示例: **
+**Example**
 
 ```python
 import ntptime
@@ -73,14 +67,14 @@ import checkNet
 
 
 '''
-下面两个全局变量是必须有的，用户可以根据自己的实际项目修改下面两个全局变量的值
+The following two global variables are required. You can modify the values of the following two global variables according to your actual projects.
 '''
 PROJECT_NAME = "QuecPython_NTP_example"
 PROJECT_VERSION = "1.0.0"
 
 checknet = checkNet.CheckNetwork(PROJECT_NAME, PROJECT_VERSION)
 
-# 设置日志输出级别
+# Set the log output level.
 log.basicConfig(level=log.INFO)
 ntp_log = log.getLogger("NtpTime")
 
@@ -89,12 +83,12 @@ if __name__ == '__main__':
     if stagecode == 3 and subcode == 1:
         ntp_log.info('Network connection successful!')
 
-        # 查看默认ntp服务
+        # View the default NTP server address.
         ntp_log.info(ntptime.host)
-        # 设置ntp服务
+        # Set NTP server address.
         ntptime.sethost('pool.ntp.org')
 
-        # 同步ntp服务时间
+        # Synchronize NTP server time.
         ntptime.settime()
     else:
         ntp_log.info('Network connection failed! stagecode = {}, subcode = {}'.format(stagecode, subcode))
