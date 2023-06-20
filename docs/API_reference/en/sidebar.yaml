@@ -129,7 +129,7 @@ items:
     file: syslib/README.md
     items:
     -   label: modem - Device
-        file: iotlib/modem.md
+        file: syslib/modem.md
     -   label: example - Execute Python Scripts
         file: syslib/example.md
     -   label: atcmd - Send AT Commands
