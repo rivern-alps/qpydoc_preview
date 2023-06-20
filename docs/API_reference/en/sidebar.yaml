@@ -1,6 +1,5 @@
 items:
-items:
--   label: stdlib
+-   label: Python  stdlibrary
     file: stdlib/README.md
     items:
     -   label: uos - Basic System Services
@@ -33,7 +32,9 @@ items:
         file: stdlib/_thread.md
     -   label: uhashlib - Hash Algorithm
         file: stdlib/uhashlib.md
--   label: IoT Library
+    -   label: ure - Regular expression
+        file: stdlib/ure.md
+-   label: Cellular communication
     file: iotlib/README.md
     items:
     -   label: dataCall - Data Call
@@ -46,35 +47,9 @@ items:
         file: iotlib/voiceCall.md
     -   label: net - Networks
         file: iotlib/net.md
-    -   label: modem - Device
-        file: iotlib/modem.md
-    -   label: pm - Power Management 
-        file: iotlib/pm.md
-    -   label: cellLocator - Base Station Location
-        file: iotlib/cellLocator.md
-    -   label: wifilocator - Wi-Fi Positioning
-        file: iotlib/wifilocator.md
-    -   label: wifiScan - Wi-Fi Scan
-        file: iotlib/wifiScan.md
 -   label: peripherals
     file:  peripherals/README.md
     items: 
-    -   label: camera - Camera Driver
-        file: peripherals/camera.md
-        items:
-        -   label: CamPreview - Camera Preview
-            file: peripherals/camera.CamPreview.md
-        -   label: CamDecoder - Camera Scan Code
-            file: peripherals/camera.CamDecoder.md
-        -   label: CamCapture - Camera Capture
-            file: peripherals/camera.CamCapture.md
-    -   label: audio - Audio
-        file: peripherals/audio.md
-        items:
-        -   label: Audio - Audio Playback
-            file: peripherals/audio.Audio.md
-        -   label: Record - Audio Record
-            file: peripherals/audio.Record.md
     -   label: machine - Hardware
         file: peripherals/machine.md
         items:
@@ -128,8 +103,72 @@ items:
             file: peripherals/ethernet.CH395.md
         -   label: YT8512H - YT8512H Driver
             file: peripherals/ethernet.YT8512H.md
+
+-   label: media
+    file:  medialib/README.md
+    items: 
+    -   label: camera - Camera Driver
+        file: medialib/camera.md
+        items:
+        -   label: CamPreview - Camera Preview
+            file: medialib/camera.CamPreview.md
+        -   label: CamDecoder - Camera Scan Code
+            file: medialib/camera.CamDecoder.md
+        -   label: CamCapture - Camera Capture
+            file: medialib/camera.CamCapture.md
+    -   label: audio - Audio
+        file: medialib/audio.md
+        items:
+        -   label: Audio - Audio Playback
+            file: medialib/audio.Audio.md
+        -   label: Record - Audio Record
+            file: medialib/audio.Record.md
     -   label: qrcode - QR Code Display 
-        file: peripherals/qrcode.md
+        file: medialib/qrcode.md
+-   label: syslib
+    file: syslib/README.md
+    items:
+    -   label: modem - Device
+        file: iotlib/modem.md
+    -   label: example - Execute Python Scripts
+        file: syslib/example.md
+    -   label: atcmd - Send AT Commands
+        file: syslib/atcmd.md
+    -   label: log - Log Control and Output
+        file: syslib/log.md
+    -   label: system - System Configuration 
+        file: syslib/system.md
+    -   label: Queue - Message queue
+        file: syslib/Queue.md
+    -   label: sys_bus - Session bus
+        file: syslib/sys_bus.md
+    -   label: osTimer - os timer
+        file: syslib/osTimer.md
+    -   label: fota - Firmware Upgrade
+        file: syslib/fota.md
+    -   label: app_fota - User File Upgrade
+        file: syslib/app_fota.md
+    -   label: ql_fs - Advanced file operations
+        file: syslib/ql_fs.md
+    -   label: securedata - Secure data
+        file: syslib/securedata.md
+    -   label: pm - Power Management 
+        file: syslib/pm.md
+-   label: Wi-Fi
+    file: wifilib/README.md
+    items:
+    -   label: WLAN - WLAN
+        file: wifilib/WLAN.md
+        items:
+        -   label: ESP8266 - Espressif ESP8266 module driver
+            file: wifilib/WLAN.ESP8266.md
+-   label: BT
+    file: btlib/README.md
+    items:
+    -   label: ble - Bluetooth Low Energy 
+        file: btlib/ble.md
+    -   label: bt - Classic Bluetooth 
+        file: btlib/bt.md
 -   label: networklib
     file: networklib/README.md
     items:
@@ -145,52 +184,21 @@ items:
         file: networklib/checkNet.md
     -   label: uping - Sending ping packets
         file: networklib/uping.md
--   label: syslib
-    file: syslib/README.md
-    items:
-    -   label: example - Execute Python Scripts
-        file: syslib/example.md
-    -   label: atcmd - Send AT Commands
-        file: syslib/atcmd.md
-    -   label: log - Log Control and Output
-        file: syslib/log.md
-    -   label: system - System Configuration 
-        file: syslib/system.md
-    -   label: Queue - Message queue
-        file: syslib/Queue.md
-    -   label: sys_bus - Session bus
-        file: syslib/sys_bus.md
-    -   label: osTimer - os timer
-        file: syslib/osTimer.md
     -   label: ntptime - Network Time Protocol (NTP)
-        file: syslib/ntptime.md
-    -   label: fota - Firmware Upgrade
-        file: syslib/fota.md
-    -   label: app_fota - User File Upgrade
-        file: syslib/app_fota.md
-    -   label: ql_fs - Advanced file operations
-        file: syslib/ql_fs.md
--   label: WIFI/BT/GNSS
-    file: wifibtgnss/README.md
+        file: networklib/ntptime.md
+-   label: Positioning application
+    file: gnsslib/README.md
     items:
-    -   label: WLAN - WLAN
-        file: wifibtgnss/WLAN.md
-        items:
-        -   label: ESP8266 - Espressif ESP8266 module driver
-            file: wifibtgnss/WLAN.ESP8266.md
-    -   label: ble - Bluetooth Low Energy 
-        file: wifibtgnss/ble.md
-    -   label: bt - Classic Bluetooth 
-        file: wifibtgnss/bt.md
     -   label: gnss - External GNSS Resolver 
-        file: wifibtgnss/gnss.md
+        file: gnsslib/gnss.md
     -   label: quecgnss - Internal GNSS Resolver 
-        file: wifibtgnss/quecgnss.md
--   label: storelib
-    file: storelib/README.md
-    items:
-    -   label: securedata - Secure-Data Area 
-        file: storelib/securedata.md
+        file: gnsslib/quecgnss.md
+    -   label: cellLocator - Base Station Location
+        file: gnsslib/cellLocator.md
+    -   label: wifilocator - Wi-Fi Positioning
+        file: gnsslib/wifilocator.md
+    -   label: wifiScan - Wi-Fi Scan
+        file: gnsslib/wifiScan.md
 -   label: componentlib
     file: componentlib/README.md
     items:
@@ -198,6 +206,3 @@ items:
         file: componentlib/uasyncio.md
 -   label: errcode
     file: errcode/README.md
-    items:
-    -   label: QuecPython error code summary
-        file: errcode/error-code.md
