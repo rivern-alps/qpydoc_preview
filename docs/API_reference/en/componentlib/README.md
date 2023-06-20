@@ -1,9 +1,9 @@
-# QuecPython 组件库
+# QuecPython open source component
 
-> QuecPython 组件库包括所有使用QuecPython脚本开发的功能组件
+> The QuecPython Component Library includes all functional components developed using QuecPython scripts
 
-本文描述了 QuecPython 组件库中的模块。
+This article describes the modules in the QuecPython component library.
 
-## QuecPython 组件库列表
+## QuecPython open source component library list
 
-- [uasyncio-协程](./uasyncio.md)
+- [uasyncio - coroutine](./uasyncio.md)

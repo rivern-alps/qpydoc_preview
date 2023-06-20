@@ -4,7 +4,7 @@
 
 本文描述了 QuecPython 定位应用库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 定位应用库列表
 
 - [gnss - 外置GNSS](./gnss.md)
 - [quecgnss - 内置GNSS](./quecgnss.md)

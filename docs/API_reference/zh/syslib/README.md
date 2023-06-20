@@ -4,7 +4,7 @@
 
 本文描述了 QuecPython 系统功能库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 系统功能库列表
 
 - [modem - 设备相关](./modem.md)
 - [example - 执行Python脚本](./example.md)

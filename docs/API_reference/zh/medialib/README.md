@@ -4,7 +4,7 @@
 
 本文描述了 QuecPython 多媒体库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 多媒体库列表
 
 - [camera - 摄像头](./camera.md)
 - [audio - 音频播放](./audio.md)

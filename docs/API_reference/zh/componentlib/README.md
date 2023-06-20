@@ -4,6 +4,6 @@
 
 本文描述了 QuecPython 组件库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 开源组件库列表
 
 - [uasyncio-协程](./uasyncio.md)

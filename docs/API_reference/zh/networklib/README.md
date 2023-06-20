@@ -4,7 +4,7 @@
 
 本文描述了 QuecPython 网络应用库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 网络应用库列表
 
 - [ussl - SSL加密通信](./ussl.md)
 - [request - HTTP客户端](./request.md)

@@ -4,7 +4,7 @@
 
 本文描述了 QuecPython 蜂窝通信库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 蜂窝通信库列表
 
 - [dataCall - 拨号](./dataCall.md)
 - [sim - SIM卡功能](./sim.md)

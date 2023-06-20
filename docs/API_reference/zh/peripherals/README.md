@@ -4,7 +4,7 @@
 
 本文描述了 QuecPython 外设接口库中的模块。
 
-## QuecPython 组件库列表
+## QuecPython 外设接口库列表
 
 - [machine - 硬件相关功能](./machine.md)
 - [misc - 其他](./misc.md)
