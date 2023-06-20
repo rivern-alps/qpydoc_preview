@@ -29,4 +29,5 @@ help('modules')
 - [uzlib - zlib解压缩](./uzlib.md)
 - [_thread - 多线程](./_thread.md)
 - [uhashlib - 哈希算法](./uhashlib.md)
+- [ure - 正则表达式](./ure.md)
 

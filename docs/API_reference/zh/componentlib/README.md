@@ -1,4 +1,4 @@
-# QuecPython 组件库
+# QuecPython 开源组件
 
 > QuecPython 组件库包括所有使用QuecPython脚本开发的功能组件
 
