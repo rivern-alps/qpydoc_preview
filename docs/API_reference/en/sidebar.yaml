@@ -47,7 +47,7 @@ items:
         file: iotlib/voiceCall.md
     -   label: net - Networks
         file: iotlib/net.md
--   label: peripherals
+-   label: Peripherals
     file:  peripherals/README.md
     items: 
     -   label: machine - Hardware
@@ -104,7 +104,7 @@ items:
         -   label: YT8512H - YT8512H Driver
             file: peripherals/ethernet.YT8512H.md
 
--   label: media
+-   label: Media library
     file:  medialib/README.md
     items: 
     -   label: camera - Camera Driver
@@ -125,7 +125,7 @@ items:
             file: medialib/audio.Record.md
     -   label: qrcode - QR Code Display 
         file: medialib/qrcode.md
--   label: syslib
+-   label: System library
     file: syslib/README.md
     items:
     -   label: modem - Device
@@ -169,7 +169,7 @@ items:
         file: btlib/ble.md
     -   label: bt - Classic Bluetooth 
         file: btlib/bt.md
--   label: networklib
+-   label: Network library
     file: networklib/README.md
     items:
     -   label: ussl - SSL algorithm
@@ -199,10 +199,10 @@ items:
         file: gnsslib/wifilocator.md
     -   label: wifiScan - Wi-Fi Scan
         file: gnsslib/wifiScan.md
--   label: componentlib
+-   label: Component library
     file: componentlib/README.md
     items:
     -   label: uasyncio - Aoroutine
         file: componentlib/uasyncio.md
--   label: errcode
+-   label: ErrorCode
     file: errcode/README.md
