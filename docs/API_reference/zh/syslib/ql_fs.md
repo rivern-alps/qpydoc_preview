@@ -96,7 +96,7 @@ ql_fs.rmdirs(dir_path)
 
 **参数描述：**
 
-* `dir_path`-文件路径, string类型, 所要创建的文件夹绝对路径 
+* `dir_path`-文件路径, string类型, 所要删除的文件夹绝对路径 
 
 **示例:**
 

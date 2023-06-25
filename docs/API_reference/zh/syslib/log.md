@@ -61,7 +61,7 @@ log.set_output(out)
 
 **参数描述：**
 
-* `out` - 日志输出位置，输出到指定串口或者交互口，默认不设置为交互口输出，类型参考示例
+* `out` - 日志输出位置，输出到指定串口或者交互口，默认为交互口输出，类型参考示例
 
 **返回值描述：**
 
@@ -80,7 +80,7 @@ uart = UART(UART.UART0, 115200, 8, 0, 1, 0)
 
 log.set_output(uart)
 
-Testlog.info("this is a Test log") # 会输出带对应的uart口
+Testlog.info("this is a Test log") # 会输出到对应的uart口 
 
 # 从uart口切换成交互口输出
 import usys

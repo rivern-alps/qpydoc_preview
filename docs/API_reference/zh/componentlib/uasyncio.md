@@ -10,7 +10,7 @@
 
 ### uasyncio.create_task
 
-从给定的协程创建一个新任务并安排它运行。返回相应的`Tsk`对象。只是创建未执行, 注意这个创建是在
+创建一个异步任务，用于执行指定的协程
 
 ```python
 uasyncio.create_task(coro)
@@ -18,21 +18,16 @@ uasyncio.create_task(coro)
 
 **参数描述：**
 
-* `coro`-协程对象,  coro类型, 协程对象
+* `coro`-要执行的协程对象
 
 **示例：**
 
 ```python
 import usr.uasyncio as asyncio
-async def bar(x):
-    count = 0
-    while True:
-        count += 1
-        print('Instance: {} count: {}'.format(x, count))
-        await asyncio.sleep(2)  # Pause 1s
-        print("sleep count instance = {} count = {}".format(x, count))
+async def my_coroutine():
+    print("Running my_coroutine")
 
-asyncio.create_task(bar(1))
+task = asyncio.create_task(my_coroutine())
 ```
 
 
@@ -41,7 +36,7 @@ asyncio.create_task(bar(1))
 
 ### uasyncio.run
 
-启动task, 这里可以启动多个coro
+运行一个协程，阻塞直到该协程完成。这是启动事件循环的主要方式。
 
 ```python
 uasyncio.run(coro)
@@ -49,29 +44,17 @@ uasyncio.run(coro)
 
 **参数描述：**
 
-* `coro`-协程对象,  coro类型, 协程对象
+* `coro`-要运行的协程对象
 
 **示例：**
 
 ```python
 import usr.uasyncio as asyncio
-async def bar(x):
-    count = 0
-    while True:
-        count += 1
-        print('Instance: {} count: {}'.format(x, count))
-        # 触发调度,让出资源给其他携程执行
-        await asyncio.sleep(2)  # Pause 1s
-        print("sleep count instance = {} count = {}".format(x, count))
-# 启动一个携程        
-asyncio.run(bar(1))        
 
-async def main():
-    for x in range(10):
-        asyncio.create_task(bar(x))
-    await asyncio.sleep(10)
-# 启动携程, 携程中创建的所有task也会被启动
-asyncio.run(main())
+async def my_coroutine():
+    print("Running my_coroutine")
+
+asyncio.run(my_coroutine())
 ```
 
 ##  coro取消任务
@@ -115,29 +98,29 @@ asyncio.run(main())
 
 ### uasyncio.sleep
 
-休眠让出cpu, 单位秒级别
+暂停当前任务指定的秒数。这允许其他任务运行。
 
 ```python
-uasyncio.sleep(t)
+uasyncio.sleep(delay)
 ```
 
 **参数描述：**
 
-* `t`-睡眠*t*秒,  int |（可以是浮点数), 睡眠触发调度, 让出cpu给其他携程运行, `只能在携程中使用`
+* `delay`-延迟的秒数,  int |（可以是浮点数)
 
 
 
-### uasyncio.sleep
+### uasyncio.sleep_ms
 
-休眠让出cpu, 单位毫秒级别
+暂停当前任务指定的毫秒数。这允许其他任务运行。
 
 ```python
-uasyncio.sleep_ms(t)
+uasyncio.sleep_ms(delay)
 ```
 
 **参数描述：**
 
-* `t`-睡眠*t*毫秒,  int |（可以是浮点数), 睡眠触发调度, 让出cpu给其他携程运行, `只能在携程中使用`
+* `t`-延迟的毫秒数,  int |（可以是浮点数)
 
 
 
@@ -145,20 +128,16 @@ uasyncio.sleep_ms(t)
 
 ### uasyncio.wait_for
 
-等待*awaitable*完成，但如果它需要更长的*超时*秒数，请取消它。如果*awaitable*不是任务，那么将从它创建一个任务。
-
-如果发生超时，它会取消任务并引发`asyncio.TimeoutError`：这应该被调用者捕获。
-
-返回*awaitable*的返回值。
+等待一个协程，如果在给定的超时时间内未完成，则引发一个异常。。
 
 ```python
-uasyncio.wait_for(awaitable, timeout)
+uasyncio.wait_for(coro, timeout)
 ```
 
 **参数描述：**
 
-* `awaitable`-协程对象,  coro类型, 一个执行的协程对象
-* `timeout`-超时时间,  int/float类型, 单位秒级别的延迟
+* `coro`-协程对象
+* `timeout`-超时时间, 单位是秒,  int/float类型
 
 **示例:**
 
@@ -176,9 +155,9 @@ async def bar(x):
 
 
 async def main():
-    """设置携程wait task"""
+    """设置协程wait task"""
     task = asyncio.wait_for(bar(10), 7)
-    """启动携程, 上面携程表示在7秒内如果执行的task没退出,则关闭携程, 跑出error"""
+    """启动协程, 上面协程表示在7秒内如果执行的task没退出,则关闭协程, 跑出error"""
     asyncio.run(task)
     await asyncio.sleep(10)
 
@@ -189,17 +168,17 @@ asyncio.run(main())
 
 ### uasyncio.wait_for_ms
 
-类似于wait_for但*超时*是以毫秒为单位的整数。
+这个函数的功能和 `wait_for` 类似，但是超时时间的单位是毫秒。
 
 ```python
-uasyncio.wait_for_ms(awaitable, timeout)
+uasyncio.wait_for_ms(coro, timeout)
 ```
 
 **参数描述：**
 
-* `awaitable`-协程对象,  coro类型, 一个执行的协程对象
+* `coro`-协程对象
 
-* `timeout`-超时时间,  int/float类型, 单位秒级别的延迟
+* `timeout`-超时时间, 单位是毫秒,  int/float类型
 
   
 
@@ -207,18 +186,16 @@ uasyncio.wait_for_ms(awaitable, timeout)
 
 ### uasyncio.gather
 
-同时运行所有*等待*。任何不是任务的*等待项*都被提升为任务。
-
-返回所有*awaitables*的返回值列表。
+运行给定的协程并收集它们的结果。当所有协程都完成时，此函数返回一个结果列表。 `return_exceptions` (默认为`False`)，即在任何协程引发异常时立即中止并引发异常。如果设置为`True`，则将异常包装在结果中返回。
 
 ```python
-uasyncio.gather(*awaitables, return_exceptions=False)
+uasyncio.gather(*coros, return_exceptions=False)
 ```
 
 **参数描述：**
 
-* `awaitables`-单个或多个协程对象,  *coro类型, 一个执行的协程对象
-* `return_exceptions`-单个任务异常是否取消后续任务,  bool类型,  确定任务取消或超时时的行为,如果`False`将`gather` 立即终止, 如果`True`将`gather`继续阻塞，直到所有要么运行至完成或取消或超时被终止。在这种情况下，已终止的任务将在返回值列表中返回异常对象
+* `coros`-单个或多个协程对象
+* `return_exceptions`-是否返回异常作为结果,  bool类型,  默认为False。
 
 **示例:**
 
@@ -259,7 +236,7 @@ async def main():
     asyncio.create_task(do_cancel(tasks[0]))
     res = None
     try:
-        # return_exceptions=True, 出现异常, 代表要等待所有任务才会返回异常任务的列表
+        # return_exceptions=True, 默认为False，即在任何协程引发异常时立即中止并引发异常。 如果设置为True，则将异常包装在结果中返回。
         res = await asyncio.gather(*tasks, return_exceptions=True)
     except asyncio.TimeoutError:  # These only happen if return_exceptions is False
         print('Timeout')  # With the default times, cancellation occurs first

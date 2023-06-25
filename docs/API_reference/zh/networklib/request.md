@@ -7,7 +7,7 @@
 ### `request.get`
 
 ```python
-response = requtes.get(url)
+response = request.get(url)
 ```
 
 发送GET请求。
@@ -17,9 +17,9 @@ response = requtes.get(url)
 - `url`- 必填参数，请求的远端地址。
 - `data`-可选参数，请求中需要携带参数，JSON格式。
 - `headers`-可选参数，请求头信息，字典类型。
-- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True,输入False则返回bytes，仅配合response.content使用。
-- `sizeof`-可选参数，读取缓冲区的数据块大小，默认255 个字节，建议255-4096， 数值越大读取的速度越快。
-- `ssl_params`-可选参数，SSL认证时传入密钥，格式为{"cert": certificate_content, "key": private_content} 
+- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True，输入False则返回bytes，仅配合response.content使用。
+- `sizeof`-可选参数，读取缓冲区的数据块大小，默认255 个字节，建议255-4096，数值越大读取的速度越快。
+- `ssl_params`-可选参数，SSL认证时传入密钥，格式为{"cert": certificate_content, "key": private_content}。
 
 **返回值描述：**
 
@@ -28,7 +28,7 @@ response = requtes.get(url)
 ### `request.post`
 
 ```python
-response = requtes.post(url,data)
+response = request.post(url,data)
 ```
 
 发送POST请求。
@@ -38,7 +38,7 @@ response = requtes.post(url,data)
 - `url`- 必填参数，请求的远端地址。
 - `data`-可选参数，请求中需要携带的参数，JSON格式。
 - `headers`-可选参数，请求头信息，字典类型。
-- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True,输入False则返回bytes，仅配合response.content使用。
+- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True，输入False则返回bytes，仅配合response.content使用。
 - `sizeof`-可选参数，读取缓冲区的数据块大小，默认255 个字节，建议255-4096， 数值越大读取的速度越快。
 
 **返回值描述：**
@@ -49,10 +49,10 @@ response = requtes.post(url,data)
 
 当使用POST方法提交数据时，对于提交的数据主要有如下四种形式：
 
-- application/x-www-form-urlencoded：form表单数据被编码为key/value格式发送到服务器（表单默认的提交数据的格式）
-- multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式
-- application/json： JSON数据格式
-- application/octet-stream ： 二进制流数据（如常见的文件下载）
+- application/x-www-form-urlencoded：form表单数据被编码为key/value格式发送到服务器（表单默认的提交数据的格式）。
+- multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式。
+- application/json： JSON数据格式。
+- application/octet-stream ： 二进制流数据（如常见的文件下载）。
 
 **示例：**
 
@@ -61,9 +61,9 @@ import request
 
 url = "http://httpbin.org/post"
 data = {"key1": "value1", "key2": "value2", "key3": "value3"}
-resp = request.post(url, data=ujson.dumps(data))
+response = request.post(url, data=ujson.dumps(data))
 
-for i in resp.text:
+for i in response.text:
     print(i)
 
 ```
@@ -82,7 +82,7 @@ response = request.put(url)
 - `url`- 必填参数，请求的远端地址。
 - `data`-可选参数，请求中需要携带的参数，JSON格式。
 - `headers`-可选参数，请求头信息，字典类型。
-- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True,输入False则返回bytes，仅配合response.content使用。
+- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True，输入False则返回bytes，仅配合response.content使用。
 - `sizeof`-可选参数，读取缓冲区的数据块大小，默认255 个字节，建议255-4096， 数值越大读取的速度越快。
 
 **返回值描述：**
@@ -102,7 +102,7 @@ response = request.head(url)
 - `url`- 必填参数，请求的远端地址。
 - `data`-可选参数，请求中需要携带的参数，JSON格式。
 - `headers`-可选参数，请求头信息，字典类型。
-- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True,输入False则返回bytes，仅配合response.content使用。
+- `decode`-可选参数，将请求成功后的响应结果解码（UTF8），默认为True，输入False则返回bytes，仅配合response.content使用。
 - `sizeof`-可选参数，读取缓冲区的数据块大小，默认255 个字节，建议255-4096， 数值越大读取的速度越快。
 
 **返回值描述：**
@@ -115,7 +115,7 @@ response = request.head(url)
 
 ### `response.status_code`
 
-使用 `response.status_code` 属性获取响应状态码。
+使用 `response.status_code` 属性获取请求状态码。
 
 ```python
 response.status_code
@@ -123,7 +123,7 @@ response.status_code
 
 **返回值描述：**
 
-- int类型，请求状态码
+- int类型，响应状态码
 
 **示例：**
 
@@ -136,7 +136,7 @@ print(response.status_code)
 
 ### `response.headers`
 
-使用 `response.headers` 属性获取响应头信息。
+使用 `response.headers` 属性获取请求头信息。
 
 ```python
 response.headers
@@ -144,7 +144,7 @@ response.headers
 
 **返回值描述：**
 
-- dict类型，请求头信息
+- dict类型，响应头信息
 
 **示例：**
 
@@ -157,7 +157,7 @@ print(response.headers)
 
 ### `response.text`
 
-使用 `response.text` 属性获取响应体文本数据。
+使用 `response.text` 属性获取响应体数据。
 
 ```python
 response.text
@@ -165,7 +165,7 @@ response.text
 
 **返回值描述：**
 
-- 生成器对象，通过for遍历读取全部返回的文本数据
+- 生成器对象，通过for遍历读取全部返回的文本数据。
 
 **示例：**
 
@@ -179,7 +179,7 @@ for i in response.text:
 
 ### `response.content`
 
-使用 `response.content` 属性获取响应体信息。
+使用 `response.content` 属性获取响应体数据。
 
 ```python
 response.content
@@ -201,7 +201,7 @@ for i in response.content:
 
 ### `response.json`
 
-使用 `response.json` 属性获取JSON类型的响应体信息。
+使用 `response.json` 属性获取JSON类型的响应体数据。
 
 ```python
 response.json()

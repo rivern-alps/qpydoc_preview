@@ -10,7 +10,7 @@
 >
 > EC600M系列模组中，EC600MCN_LC/EC600MCN_LF不支持`wifiScan`；
 >
-> EC800M系列模组中，EC800MCN_GC/EC800MCN_LC/EC800MCN_LF不支持`wifiScan`；
+> EC800M系列模组中，EC800MCN_GC/EC800MCN_LC不支持`wifiScan`；
 >
 > EC600U系列模组中，EC600UEC_AC不支持`wifiScan`。
 
