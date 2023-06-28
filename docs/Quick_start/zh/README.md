@@ -1,4 +1,4 @@
-# 快速入门
+  Win10  Win10快速入门
 
 本文档旨在指导用户搭建QuecPython硬件开发的软件环境，通过一个简单的示例展示如何使用官方的开发板进行开发调试，并使用QuecPython进行固件下载、代码开发和调试等步骤。
 
@@ -59,24 +59,46 @@ QuecPython模组具有以下优势
 
 > 首先需要有一台运行有 Windows 10 以上 操作系统的电脑
 
-- **Step1：**安装开发板配套的天线,安装位置为LTE天线座位置,并将SIM卡插入开发板上的SIM卡座(Wi-Fi开发板无需插入SIM卡)
-- **Step2：**使用USB Type-C数据线连接开发板的Type-C接口和电脑USB口即可完成供电
-- **Step3：**开发板上USB和DC的电源选择开关拨到USB处,开发板上的PWK_ON跳帽短接AUTO(上电自动开机)
-- **Step4：**按住PWK直至主板上电源指示灯亮（主板上丝印为POW的灯）,如果上一步短接PWK_ON则无需长按PWK
+- <font color='red'>**Step1：天线安装**</font>
+
+安装开发板配套的天线,安装位置为LTE天线座位置,并将SIM卡插入开发板上的SIM卡座(Wi-Fi开发板无需插入SIM卡)
+
+- <font color='red'>**Step2：开发板连接**</font>
+
+使用USB Type-C数据线连接开发板的Type-C接口和电脑USB口即可完成供电
+
+- <font color='red'>**Step3：开发板电源设置**</font>
+
+开发板上USB和DC的电源选择开关拨到USB处,开发板上的PWK_ON跳帽短接AUTO(上电自动开机)
+
+- <font color='red'>**Step4：开发板开机**</font>
+
+按住PWK直至主板上电源指示灯亮（主板上丝印为POW的灯）,如果上一步短接PWK_ON则无需长按PWK
 
 <font color='red'>**执行以上操作后POW灯常亮即开机成功**</font>
 
 ## <a id="info_2">驱动准备</a>
 
-- **Step1：** 驱动下载
+- <font color='red'>**Step1：驱动下载**</font>
 
 驱动程序（device driver）全称为“设备驱动程序”，是一种可以使计算机和设备通信的特殊程序，操作系统只能通过这个接口，才能控制硬件设备的工作。
 
-打开[驱动下载链接](https://python.quectel.com/download)，选择与自己模组型号和电脑系统匹配的驱动，点击下载按钮即可
+打开[驱动下载链接](https://python.quectel.com/download)，先选择驱动栏，然后在驱动栏选择与自己模组型号和电脑系统匹配的驱动，点击下载按钮即可
+
+不同平台的模组所需要的驱动程序不一致，需要根据模组型号去下载对应的驱动包
+
+| 模组型号                                                     | 平台  | 驱动名称                                       |
+| ------------------------------------------------------------ | ----- | ---------------------------------------------- |
+| [EC200A-CN](https://python.quectel.com/products/ec200a-cn)   | Win10 | **QuecPython_USB_Driver_Win10_A**              |
+| [BG77](https://python.quectel.com/en/products/bg77)<br/>[BG95-M3](https://python.quectel.com/en/products/bg95m3)<br/>[BG95-M8](https://python.quectel.com/en/products/bg95m8) | Win10 | Win10**Win10****QuecPython_USB_Driver_Win10_BG |
+| [EC800E-CN](https://python.quectel.com/products/ec800e-cn)<br/>[EC600E-CN](https://python.quectel.com/products/ec600e-cn) | Win10 | **QuecPython_USB_Driver_Win10_E**              |
+| [EC200N-CN](https://python.quectel.com/products/ec200n-cn)<br/>[EC800M-CN](https://python.quectel.com/products/ec800m-cn)<br/>[EC600N-CN](https://python.quectel.com/products/ec600n-cn)<br/>[EC600M-CN](https://python.quectel.com/products/ec600m-cn) | Win10 | **QuecPython_USB_Driver_Win10_M_N**            |
+| [EC600U-CN](https://python.quectel.com/products/ec600u-cn)<br/>[EC600G-CN](https://python.quectel.com/products/ec600g-cn)<br/>[EC800G-CN](https://python.quectel.com/products/ec800g-cn) | Win10 | **QuecPython_USB_Driver_Win10_U_G**            |
+
 
 <img src="media/driver_dw.png" style="zoom: 80%;" />
 
-- **Step2：** 驱动安装
+- <font color='red'>**Step2：驱动安装**</font>
 
 下载后解压驱动压缩包，找到**"setup.exe"** 或者是**"setup.bat"**，双击运行即可，安装完之后打开设备管理器就可以看到设备管理器中端口的黄色感叹号消失了，说明安装成功，能够正常通信。
 
@@ -116,25 +138,37 @@ QuecPython模组具有以下优势
 
 模组在出厂时通常烧录有标准 AT 固件或 QuecOpen 固件，如需基于 QuecPython 对模块进行开发，需要手动为其重新烧录专门的 QuecPython 固件。
 
-官网固件下载地址：**<https://python.quectel.com/download>** ，根据模组的型号下载对应的固件即可。
+官网固件下载地址：**<https://python.quectel.com/download>** 
 
 ![](media/Firmware.png)
 
+面对官网种类众多的固件，如何选择合适的固件包，首先需要知道使用的模组的型号，模组型号可以通过模组的镭雕或者发送AT指令来获得。
+
+在获取到模组型号之后根据模组的型号去官网下载该模组对应的固件即可。
+
 ![](media/firmware_zip.png)
 
-> 固件压缩包下载到本地后，需进行解压。解压后可获得两个文件，其中 .bin 、.lod或 .pac 格式的是 QuecPython 固件本体，.md 格式的是更新日志。
+> 从官网下载的固件包为压缩包格式，固件压缩包下载到本地后，需进行解压。解压后可获得两个文件，其中 .bin 、.lod或 .pac 格式的是 QuecPython 固件本体，.md 格式的是更新日志。
 
 > 请务必将压缩包内容解压至一个**不包含中文、空格和其他特殊字符**的路径下，否则下载工具可能无法正常识别到固件，同时下载工具路径也**不可包含中文、空格和其他特殊字符**。
 
 ## <a id="info_6">烧录固件</a>
 
-- **Step1：**首先确保模组连接正常并已开机，打开工具进入下载页面，点击**"创建"**项目，新建要下载的固件项目
+- <font color='red'>**Step1：创建项目**</font>
 
-- **Step2：**选择要下载到模组的固件(根据要下载的模组型号选择对应的固件)
+首先确保模组连接正常并已开机，打开工具进入下载页面，点击**"创建"**项目，新建要下载的固件项目
 
-- **Step3：**单击**“Download script”**右侧的下拉选择箭头，选择**"Download FW"**
+- <font color='red'>**Step2：选择固件**</font>
 
-- **Step4：**点击**"Download FW"**，开始下载固件,下载过程会有进度条和进度百分比显示，等待下载完毕会有弹窗提示下载成功
+选择要下载到模组的固件(根据要下载的模组型号选择对应的固件)
+
+- <font color='red'>**Step3：设置下载模式**</font>
+
+单击**“Download script”**右侧的下拉选择箭头，选择**"Download FW"**
+
+- <font color='red'>**Step4：开始烧录固件**</font>
+
+点击**"Download FW"**，开始下载固件,下载过程会有进度条和进度百分比显示，等待下载完毕会有弹窗提示下载成功
 
 ![](media/firmware.gif)
 
@@ -144,8 +178,13 @@ REPL全称为<font color='red'>**Read-Eval-Print-Loop (交互式解释器)**</fo
 
 运行 **QPYcom** 工具后，选择正确的串口（波特率无需指定）并打开，即可开始 Python 命令行交互。
 
-- **Step1：**打开QPYcom工具，端口选择连接**“Quectel USB MI05 COM Port”**，选择“交互”界面
-- **Step2：**点击“打开串口”按钮，在交互界面输入**print(‘hello world’)**，按回车后可以看到执行的结果信息
+- <font color='red'>**Step1：进入交互页面**</font>
+
+打开QPYcom工具，端口选择连接**“Quectel USB MI05 COM Port”**，选择“交互”界面
+
+- <font color='red'>**Step2：打开串口**</font>
+
+点击“打开串口”按钮，在交互界面输入**print(‘hello world’)**，按回车后可以看到执行的结果信息
 
 ```python
 >>> print('hello world')
@@ -176,32 +215,60 @@ print("hello world")
 
 <img src="media/QPYcom_drag.jpg" alt="image-2021081301" style="zoom:150%;" />
 
-- **Step1：**首先选择模组的交互口,点击"打开串口"按钮
-- **Step2：**可以通过文件页面右侧上面的 "**+**","**-**" 按钮来上传和删除文件
-- **Step3：**也可以通过拖拽的方式将文件页面左侧显示的本地文件直接拖拽到右侧模组中去（也可以拖拽文件夹）
-- **Step4：**下载过程中会在状态栏显示下载文件名和下载进度
+- <font color='red'>**Step1：打开串口**</font>
+
+首先选择模组的交互口,点击"打开串口"按钮
+
+- <font color='red'>**Step2：通过工具按钮下载**</font>
+
+可以通过文件页面右侧上面的 "**+**","**-**" 按钮来上传和删除文件
+
+- <font color='red'>**Step3：通过拖拽形式下载**</font>
+
+也可以通过拖拽的方式将文件页面左侧显示的本地文件直接拖拽到右侧模组中去（也可以拖拽文件夹）
+
+- <font color='red'>**Step4：下载进度和结果**</font>
+
+下载过程中会在状态栏显示下载文件名和下载进度
 
 **下载方法二:**
 
 <img src="media/QPYcom_sc_1.jpg" alt="image-2021081301" style="zoom:150%;" />
 
-- **Step1：**根据需求，创建用户项目（点击"创建"按钮）,步骤同上文烧录固件
-- **Step2：** 选择需要下载到模块的用户脚本(在"用户脚本"区域通过右键菜单添加)
-- **Step3：**左击下拉选择箭头，选择"下载脚本"，即"Download Script"
-- **Step4：**点击"下载脚本"开始下载脚本，下载过程中有进度条提示
+- <font color='red'>**Step1：创建项目**</font>
+
+根据需求，创建用户项目（点击"创建"按钮）,步骤同上文烧录固件
+
+- <font color='red'>**Step2：配置要下载的文件**</font>
+
+选择需要下载到模块的用户脚本(在"用户脚本"区域通过右键菜单添加)
+
+- <font color='red'>**Step3：设置下载模式**</font>
+
+左击下拉选择箭头，选择"下载脚本"，即"Download Script"
+
+- <font color='red'>**Step4：开始下载脚本**</font>
+
+点击"下载脚本"开始下载脚本，下载过程中有进度条提示
 
 ### 执行脚本文件
 
-- **Step1：**将要执行的脚本文件下载到模组中去
+- <font color='red'>**Step1：下载脚本**</font>
 
-- **Step2：**打开串口之后，在QPYcom交互页面输入以下代码执行脚本文件
+将要执行的脚本文件下载到模组中去,具体步骤参考上文
+
+- <font color='red'>**Step2：通过repl执行脚本**</font>
+
+打开串口之后，在QPYcom交互页面输入以下代码执行脚本文件
 
 ```python
 import example
 example.exec("/usr/helloworld.py") # filePath为要执行的脚本文件路径
 ```
 
-- **Step3：**或者通过QPYcom文件页面 **执行** 按钮执行脚本文件,在工具的文件页面选择要执行的脚本文件然后点击 "**▷**"按钮
+- <font color='red'>**Step3：通过GUI工具执行脚本**</font>
+
+或者通过QPYcom文件页面 **执行** 按钮执行脚本文件,在工具的文件页面选择要执行的脚本文件然后点击 "**▷**"按钮
 
 执行结果如图
 

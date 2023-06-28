@@ -6,5 +6,5 @@ items:
     items:
       - label: EC2X_BOARD
         file: EC2X_BOARD.md
-      - label: FCM360W-TE-B
+      - label: FCM360W
         file: FCM360W-TE-B.md

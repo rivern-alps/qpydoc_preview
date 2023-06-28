@@ -72,9 +72,6 @@
 
 ![](media/image16.png)
 
-
-
-
 ![](media/image17.png)
 
 

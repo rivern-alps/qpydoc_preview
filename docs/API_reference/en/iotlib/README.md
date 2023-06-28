@@ -11,3 +11,4 @@ This article describes the modules in the QuecPython cellular communication libr
 - [sms - sms function](./sms.md)
 - [voiceCall - Phone function](./voiceCall.md)
 - [net - Network related functions](./net.md)
+- [checkNet - Network readiness check](./checkNet.md)

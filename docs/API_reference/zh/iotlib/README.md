@@ -11,3 +11,4 @@
 - [sms - 短信功能](./sms.md)
 - [voiceCall - 电话功能](./voiceCall.md)
 - [net - 网络相关功能](./net.md)
+- [checkNet - 网络就绪检测](./checkNet.md)

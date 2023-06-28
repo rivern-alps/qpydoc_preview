@@ -10,6 +10,5 @@ This article describes the modules in the QuecPython web application library.
 - [request - HTTP client](./request.md)
 - [umqtt - MQTT client](./umqtt.md)
 - [uwebsocket - websocket client](./uwebsocket.md)
-- [checkNet - Network readiness check](./checkNet.md)
 - [uping - Sends ping packets](./uping.md)
 - [ntptime - Network Time synchronization](./ntptime.md)

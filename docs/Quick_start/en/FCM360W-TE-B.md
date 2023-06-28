@@ -1,4 +1,4 @@
-# FCM360W-TE-B Introduction
+# FCM360W Introduction
 
 ## Quick Start
 

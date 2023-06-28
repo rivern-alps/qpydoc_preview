@@ -1,8 +1,6 @@
 # FCM360W开发板介绍
 
-## 快速开始
-
-支持的模组列表
+## 支持的模组列表
 
 - [FCM360W](https://python.quectel.com/en/products/fcm360w)
 
@@ -86,3 +84,18 @@ QuecPython_FCM360W-TE-B_Vx.x开发板是专门针对QuecPython设计的，是一
 | ---- | --------- | ------ | -------- | -------- | ----- |
 | 1    | USB转串口 | CH340N | 是       | USB      | 26,27 |
 | 2    | 按键      | -      | 是       | GPIO     | 15,16 |
+
+
+## 上手准备
+
+> 首先需要有一台运行有 Windows 10 以上 操作系统的电脑
+
+- <font color='red'>**Step1：开发板连接**</font>
+
+使用USB Type-C数据线连接开发板的Type-C接口和电脑USB口即可完成供电
+
+- <font color='red'>**Step2：开发板开机**</font>
+
+上电后会自动开机，等待主板上电源指示灯亮（主板上丝印为POWER LED的灯）
+
+<font color='red'>**执行以上操作后POW灯常亮即开机成功**</font>

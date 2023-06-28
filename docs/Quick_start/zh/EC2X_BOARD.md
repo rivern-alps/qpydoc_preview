@@ -1,8 +1,8 @@
 # EC2X开发板介绍
 
-## 快速开始
 
-支持的模组列表
+
+## 支持的模组列表
 
 - [EC200A-CN](https://python.quectel.com/products/ec200a-cn)
 - [EC200U-CN](https://python.quectel.com/products/ec200u-cn)
@@ -113,3 +113,25 @@ QuecPython_EC2X_EVB_Vx.x 开发板是专门针对QuecPython制造，是一款小
 | 5    | 功放芯片                     | NS4160        | 是       | SPK      | 73,74   |
 | 6    | LCD 显示屏（需选择含屏套餐） | ST7789        | 是       | SPI      | 122~125 |
 | 7    | SD_CARD                      | XKTF-NO2-N    | 是       | SPI      | 28~34   |
+
+## 上手准备
+
+> 首先需要有一台运行有 Windows 10 以上 操作系统的电脑
+
+- <font color='red'>**Step1：天线安装**</font>
+
+安装开发板配套的天线,安装位置为LTE天线座位置,并将SIM卡插入开发板上的SIM卡座，如需使用GNSS或者BTWIFI功能，则需在对应的天线座安装天线
+
+- <font color='red'>**Step2：开发板连接**</font>
+
+使用USB Type-C数据线连接开发板的Type-C接口和电脑USB口即可完成供电
+
+- <font color='red'>**Step3：开发板电源设置**</font>
+
+开发板上USB和DC的电源选择开关拨到USB处,开发板上的PWK_ON跳帽短接AUTO(上电自动开机)
+
+- <font color='red'>**Step4：开发板开机**</font>
+
+按住PWK直至主板上电源指示灯亮（主板上丝印为POW的灯）,如果上一步短接PWK_ON则无需长按PWK自动开机
+
+<font color='red'>**执行以上操作后POW灯常亮即开机成功**</font>

@@ -10,7 +10,6 @@
 - [request - HTTP客户端](./request.md)
 - [umqtt - MQTT客户端](./umqtt.md)
 - [uwebsocket - websocket客户端](./uwebsocket.md)
-- [checkNet - 网络就绪检测](./checkNet.md)
 - [uping - 发送ping包](./uping.md)
 - [ntptime - 网络时间同步](./ntptime.md)
 

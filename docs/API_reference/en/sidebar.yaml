@@ -1,5 +1,5 @@
 items:
--   label: Python  stdlibrary
+-   label: Python  Std library
     file: stdlib/README.md
     items:
     -   label: uos - Basic System Services
@@ -34,7 +34,7 @@ items:
         file: stdlib/uhashlib.md
     -   label: ure - Regular expression
         file: stdlib/ure.md
--   label: Cellular communication
+-   label: Cellular Communication
     file: iotlib/README.md
     items:
     -   label: dataCall - Data Call
@@ -47,6 +47,8 @@ items:
         file: iotlib/voiceCall.md
     -   label: net - Networks
         file: iotlib/net.md
+    -   label: checkNet - Network Detection
+        file: iotlib/checkNet.md
 -   label: Peripherals
     file:  peripherals/README.md
     items: 
@@ -104,7 +106,7 @@ items:
         -   label: YT8512H - YT8512H Driver
             file: peripherals/ethernet.YT8512H.md
 
--   label: Media library
+-   label: Media Library
     file:  medialib/README.md
     items: 
     -   label: camera - Camera Driver
@@ -125,7 +127,7 @@ items:
             file: medialib/audio.Record.md
     -   label: qrcode - QR Code Display 
         file: medialib/qrcode.md
--   label: System library
+-   label: System Library
     file: syslib/README.md
     items:
     -   label: modem - Device
@@ -169,7 +171,7 @@ items:
         file: btlib/ble.md
     -   label: bt - Classic Bluetooth 
         file: btlib/bt.md
--   label: Network library
+-   label: Network Library
     file: networklib/README.md
     items:
     -   label: ussl - SSL algorithm
@@ -180,13 +182,11 @@ items:
         file: networklib/umqtt.md
     -   label: uwebsocket - websocket client
         file: networklib/uwebsocket.md
-    -   label: checkNet - Network Detection
-        file: networklib/checkNet.md
     -   label: uping - Sending ping packets
         file: networklib/uping.md
     -   label: ntptime - Network Time Protocol (NTP)
         file: networklib/ntptime.md
--   label: Positioning application
+-   label: Positioning Application
     file: gnsslib/README.md
     items:
     -   label: gnss - External GNSS Resolver 
@@ -199,7 +199,7 @@ items:
         file: gnsslib/wifilocator.md
     -   label: wifiScan - Wi-Fi Scan
         file: gnsslib/wifiScan.md
--   label: Component library
+-   label: Component Library
     file: componentlib/README.md
     items:
     -   label: uasyncio - Aoroutine

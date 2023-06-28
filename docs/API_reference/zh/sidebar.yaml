@@ -47,6 +47,8 @@ items:
         file: iotlib/voiceCall.md
     -   label: net - 网络相关功能
         file: iotlib/net.md
+    -   label: checkNet - 网络就绪检测
+        file: iotlib/checkNet.md
 -   label: 外设接口
     file:  peripherals/README.md
     items: 
@@ -181,8 +183,6 @@ items:
         file: networklib/umqtt.md
     -   label: uwebsocket - websocket客户端
         file: networklib/uwebsocket.md
-    -   label: checkNet - 网络就绪检测
-        file: networklib/checkNet.md
     -   label: uping - 发送ping包
         file: networklib/uping.md
     -   label: ntptime - 网络时间同步
