@@ -1,4 +1,4 @@
-  Win10  Win10快速入门
+# 快速入门
 
 本文档旨在指导用户搭建QuecPython硬件开发的软件环境，通过一个简单的示例展示如何使用官方的开发板进行开发调试，并使用QuecPython进行固件下载、代码开发和调试等步骤。
 
@@ -90,7 +90,7 @@ QuecPython模组具有以下优势
 | 模组型号                                                     | 平台  | 驱动名称                                       |
 | ------------------------------------------------------------ | ----- | ---------------------------------------------- |
 | [EC200A-CN](https://python.quectel.com/products/ec200a-cn)   | Win10 | **QuecPython_USB_Driver_Win10_A**              |
-| [BG77](https://python.quectel.com/en/products/bg77)<br/>[BG95-M3](https://python.quectel.com/en/products/bg95m3)<br/>[BG95-M8](https://python.quectel.com/en/products/bg95m8) | Win10 | Win10**Win10****QuecPython_USB_Driver_Win10_BG |
+| [BG77](https://python.quectel.com/en/products/bg77)<br/>[BG95-M3](https://python.quectel.com/en/products/bg95m3)<br/>[BG95-M8](https://python.quectel.com/en/products/bg95m8) | Win10 | **QuecPython_USB_Driver_Win10_BG** |
 | [EC800E-CN](https://python.quectel.com/products/ec800e-cn)<br/>[EC600E-CN](https://python.quectel.com/products/ec600e-cn) | Win10 | **QuecPython_USB_Driver_Win10_E**              |
 | [EC200N-CN](https://python.quectel.com/products/ec200n-cn)<br/>[EC800M-CN](https://python.quectel.com/products/ec800m-cn)<br/>[EC600N-CN](https://python.quectel.com/products/ec600n-cn)<br/>[EC600M-CN](https://python.quectel.com/products/ec600m-cn) | Win10 | **QuecPython_USB_Driver_Win10_M_N**            |
 | [EC600U-CN](https://python.quectel.com/products/ec600u-cn)<br/>[EC600G-CN](https://python.quectel.com/products/ec600g-cn)<br/>[EC800G-CN](https://python.quectel.com/products/ec800g-cn) | Win10 | **QuecPython_USB_Driver_Win10_U_G**            |

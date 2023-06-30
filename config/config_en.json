@@ -54,6 +54,11 @@
                     }
                 ]
             },
+			{
+                "url": "/doc_en/en/index.html",
+                "label": "&nbsp;&nbsp;&nbsp;&nbsp;DOC_EN&nbsp;&nbsp;&nbsp;&nbsp;",
+                "position": "left"
+            },
             {
                 "label": "Git",
                 "position": "right",
