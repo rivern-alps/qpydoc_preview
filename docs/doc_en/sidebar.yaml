@@ -1,0 +1,7 @@
+items:
+-   label: Python  Std library
+    file: stdlib/README.md
+    items:
+    -   label: uos - Basic System Services
+        file: stdlib/uos.md
+

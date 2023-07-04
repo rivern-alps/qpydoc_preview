@@ -57,25 +57,8 @@ QuecPython模组具有以下优势
 
 ## <a id="info_1">硬件准备</a>
 
-> 首先需要有一台运行有 Windows 10 以上 操作系统的电脑
-
-- <font color='red'>**Step1：天线安装**</font>
-
-安装开发板配套的天线,安装位置为LTE天线座位置,并将SIM卡插入开发板上的SIM卡座(Wi-Fi开发板无需插入SIM卡)
-
-- <font color='red'>**Step2：开发板连接**</font>
-
-使用USB Type-C数据线连接开发板的Type-C接口和电脑USB口即可完成供电
-
-- <font color='red'>**Step3：开发板电源设置**</font>
-
-开发板上USB和DC的电源选择开关拨到USB处,开发板上的PWK_ON跳帽短接AUTO(上电自动开机)
-
-- <font color='red'>**Step4：开发板开机**</font>
-
-按住PWK直至主板上电源指示灯亮（主板上丝印为POW的灯）,如果上一步短接PWK_ON则无需长按PWK
-
-<font color='red'>**执行以上操作后POW灯常亮即开机成功**</font>
+- [EC2X_EVB 上手准备](https://python.quectel.com/doc/Quick_start/zh/EC2X_BOARD.html#上手准备)
+- [FCM360W 上手准备](https://python.quectel.com/doc/Quick_start/zh/FCM360W-TE-B.html#上手准备)
 
 ## <a id="info_2">驱动准备</a>
 
@@ -83,9 +66,17 @@ QuecPython模组具有以下优势
 
 驱动程序（device driver）全称为“设备驱动程序”，是一种可以使计算机和设备通信的特殊程序，操作系统只能通过这个接口，才能控制硬件设备的工作。
 
-打开[驱动下载链接](https://python.quectel.com/download)，先选择驱动栏，然后在驱动栏选择与自己模组型号和电脑系统匹配的驱动，点击下载按钮即可
+- 打开[QuecPython官网驱动下载链接](https://python.quectel.com/download)
 
-不同平台的模组所需要的驱动程序不一致，需要根据模组型号去下载对应的驱动包
+- 先选择驱动栏，然后在驱动栏选择与自己模组型号和电脑系统匹配的驱动，不同平台的模组所需要的驱动程序不一致，需要根据模组型号去下载对应的驱动包
+
+- 模组型号可以通过模组上的镭雕获取,也可以通过AT指令获取，镭雕如下图所示，镭雕上型号为EG912U
+
+<img src="media/eg912u-GL.png" style="zoom: 80%;" />
+
+- 在搜索框输入`EG912U`，找到EG912U需要适用的驱动QuecPython_USB Driver Win10UG 点下下载按钮下载驱动:
+
+<img src="media/driver_eg912u.png" style="zoom: 80%;" />
 
 | 模组型号                                                     | 平台  | 驱动名称                                       |
 | ------------------------------------------------------------ | ----- | ---------------------------------------------- |
@@ -95,8 +86,6 @@ QuecPython模组具有以下优势
 | [EC200N-CN](https://python.quectel.com/products/ec200n-cn)<br/>[EC800M-CN](https://python.quectel.com/products/ec800m-cn)<br/>[EC600N-CN](https://python.quectel.com/products/ec600n-cn)<br/>[EC600M-CN](https://python.quectel.com/products/ec600m-cn) | Win10 | **QuecPython_USB_Driver_Win10_M_N**            |
 | [EC600U-CN](https://python.quectel.com/products/ec600u-cn)<br/>[EC600G-CN](https://python.quectel.com/products/ec600g-cn)<br/>[EC800G-CN](https://python.quectel.com/products/ec800g-cn) | Win10 | **QuecPython_USB_Driver_Win10_U_G**            |
 
-
-<img src="media/driver_dw.png" style="zoom: 80%;" />
 
 - <font color='red'>**Step2：驱动安装**</font>
 
@@ -280,12 +269,14 @@ example.exec("/usr/helloworld.py") # filePath为要执行的脚本文件路径
 如何停止正在运行的程序,根据运行的脚本文件类型有以下方法:
 
 <table valign="center">
+	<thead>
     <tr>
-		<td>程序名是否</br>为main.py</td>
-		<td>程序中是否</br>包含了死循环</td>
-		<td>程序中是否</br>使用了多线程</td>
-		<td valign="middle">停止步骤</td>
+		<th>程序名是否</br>为main.py</th>
+		<th>程序中是否</br>包含了死循环</th>
+		<th>程序中是否</br>使用了多线程</th>
+		<th valign="middle">停止步骤</th>
 	</tr>
+	 </thead>
     <tr>
 		<td rowspan="4">✓</td>
 		<td rowspan="2">✓</td>
